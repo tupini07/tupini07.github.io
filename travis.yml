@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "12"
+
+stages:
+  - name: install
+    if: branch = dev
+  - name: script
+    if: branch = dev
+
+install:
+  - npm ci
+script:
+  - npm run deploy-ci
