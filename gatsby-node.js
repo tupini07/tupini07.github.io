@@ -7,19 +7,16 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve('./src/templates/post-template.jsx')
-    const pageTemplate = path.resolve('./src/templates/page-template.jsx')
-    const tagTemplate = path.resolve('./src/templates/tag-template.jsx')
+    const postTemplate = path.resolve('./src/templates/post-template.tsx')
+    const pageTemplate = path.resolve('./src/templates/page-template.tsx')
+    const tagTemplate = path.resolve('./src/templates/tag-template.tsx')
     const categoryTemplate = path.resolve(
-      './src/templates/category-template.jsx'
+      './src/templates/category-template.tsx'
     )
 
     graphql(`
       {
-        allMarkdownRemark(
-          limit: 1000
-          filter: { frontmatter: { draft: { ne: true } } }
-        ) {
+        allMarkdownRemark(limit: 1000, filter: {frontmatter: {draft: {ne: true}}}) {
           edges {
             node {
               fields {
@@ -33,6 +30,21 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allMdx(limit: 1000, filter: {frontmatter: {draft: {ne: true}}}) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                tags
+                title
+                layout
+                category
+              }
+            }
+          }
+        }
       }
     `).then(result => {
       if (result.errors) {
@@ -40,7 +52,9 @@ exports.createPages = ({ graphql, actions }) => {
         reject(result.errors)
       }
 
-      _.each(result.data.allMarkdownRemark.edges, edge => {
+
+
+      _.each(result.data.allMarkdownRemark.edges.concat(result.data.allMdx.edges), edge => {
         if (_.get(edge, 'node.frontmatter.layout') === 'page') {
           createPage({
             path: edge.node.fields.slug,
@@ -99,7 +113,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const slug = `/${parsedFilePath.dir.split('---')[1]}/`
     createNodeField({ node, name: 'slug', value: slug })
   } else if (
-    node.internal.type === 'MarkdownRemark' &&
+    (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') &&
     typeof node.slug === 'undefined'
   ) {
     const fileNode = getNode(node.parent)

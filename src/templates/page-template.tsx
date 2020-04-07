@@ -4,25 +4,23 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PageTemplateDetails from '../components/PageTemplateDetails'
 
-class PageTemplate extends React.Component {
-  render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata
-    const page = this.props.data.markdownRemark
-    const { title: pageTitle, description: pageDescription } = page.frontmatter
-    const description = pageDescription !== null ? pageDescription : subtitle
+const PageTemplate = props => {
+  const { title, subtitle } = props.data.site.siteMetadata
+  const page = props.data.markdownRemark
+  const { title: pageTitle, description: pageDescription } = page.frontmatter
+  const description = pageDescription !== null ? pageDescription : subtitle
 
-    return (
-      <Layout>
-        <div>
-          <Helmet>
-            <title>{`${pageTitle} - ${title}`}</title>
-            <meta name="description" content={description} />
-          </Helmet>
-          <PageTemplateDetails {...this.props} />
-        </div>
-      </Layout>
-    )
-  }
+  return (
+    <Layout>
+      <div>
+        <Helmet>
+          <title>{`${pageTitle} - ${title}`}</title>
+          <meta name="description" content={description} />
+        </Helmet>
+        <PageTemplateDetails {...props} />
+      </div>
+    </Layout>
+  )
 }
 
 export default PageTemplate

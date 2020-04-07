@@ -40,8 +40,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/content/pages`,
         name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/posts`,
+        name: 'posts',
       },
     },
     {
@@ -138,6 +145,7 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
     'gatsby-plugin-catch-links',
+    `gatsby-plugin-mdx`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-typescript`,
     {

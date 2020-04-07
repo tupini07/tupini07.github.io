@@ -4,25 +4,23 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostTemplateDetails from '../components/PostTemplateDetails'
 
-class PostTemplate extends React.Component {
-  render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata
-    const post = this.props.data.markdownRemark
-    const { title: postTitle, description: postDescription } = post.frontmatter
-    const description = postDescription !== null ? postDescription : subtitle
+const PostTemplate = props => {
+  const { title, subtitle } = props.data.site.siteMetadata
+  const post = props.data.markdownRemark
+  const { title: postTitle, description: postDescription } = post.frontmatter
+  const description = postDescription !== null ? postDescription : subtitle
 
-    return (
-      <Layout>
-        <div>
-          <Helmet>
-            <title>{`${postTitle} - ${title}`}</title>
-            <meta name="description" content={description} />
-          </Helmet>
-          <PostTemplateDetails {...this.props} />
-        </div>
-      </Layout>
-    )
-  }
+  return (
+    <Layout>
+      <div>
+        <Helmet>
+          <title>{`${postTitle} - ${title}`}</title>
+          <meta name="description" content={description} />
+        </Helmet>
+        <PostTemplateDetails {...props} />
+      </div>
+    </Layout>
+  )
 }
 
 export default PostTemplate
