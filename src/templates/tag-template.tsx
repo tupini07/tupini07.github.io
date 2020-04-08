@@ -1,13 +1,13 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
-import TagTemplateDetails from '../components/TagTemplateDetails'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
+import TagTemplateDetails from '../components/TagTemplateDetails';
 
 const TagTemplate = props => {
-  const { title } = props.data.site.siteMetadata
-  const { tag } = props.pageContext
+  const { title } = props.data.site.siteMetadata;
+  const { tag } = props.pageContext;
 
   return (
     <Layout>
@@ -17,10 +17,10 @@ const TagTemplate = props => {
         <TagTemplateDetails {...props} />
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default TagTemplate
+export default TagTemplate;
 
 export const pageQuery = graphql`
   query TagPage($tag: String) {
@@ -44,15 +44,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
+    allMdx(
       limit: 1000
-      filter: {
-        frontmatter: {
-          tags: { in: [$tag] }
-          layout: { eq: "post" }
-          draft: { ne: true }
-        }
-      }
+      filter: { frontmatter: { tags: { in: [$tag] }, layout: { eq: "post" }, draft: { ne: true } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -71,4 +65,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

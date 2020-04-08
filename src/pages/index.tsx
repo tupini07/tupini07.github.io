@@ -1,17 +1,17 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Post from '../components/Post'
-import Sidebar from '../components/Sidebar'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Post from '../components/Post';
+import Sidebar from '../components/Sidebar';
 
 const IndexRoute = props => {
-  const items = []
-  const { title, subtitle } = props.data.site.siteMetadata
-  const posts = props.data.allMarkdownRemark.edges.concat(props.data.allMdx.edges)
+  const items = [];
+  const { title, subtitle } = props.data.site.siteMetadata;
+  const posts = props.data.allMdx.edges;
   posts.forEach(post => {
-    items.push(<Post data={post} key={post.node.fields.slug} />)
-  })
+    items.push(<Post data={post} key={post.node.fields.slug} />);
+  });
 
   return (
     <Layout>
@@ -26,10 +26,10 @@ const IndexRoute = props => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexRoute
+export default IndexRoute;
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -50,26 +50,6 @@ export const pageQuery = graphql`
           github
           rss
           vk
-        }
-      }
-    }
-    allMarkdownRemark(
-      limit: 1000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            categorySlug
-          }
-          frontmatter {
-            title
-            date
-            category
-            description
-          }
         }
       }
     }
@@ -94,4 +74,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

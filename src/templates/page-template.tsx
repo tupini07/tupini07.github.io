@@ -1,14 +1,15 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PageTemplateDetails from '../components/PageTemplateDetails'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import PageTemplateDetails from '../components/PageTemplateDetails';
 
 const PageTemplate = props => {
-  const { title, subtitle } = props.data.site.siteMetadata
-  const page = props.data.markdownRemark
-  const { title: pageTitle, description: pageDescription } = page.frontmatter
-  const description = pageDescription !== null ? pageDescription : subtitle
+  console.log(JSON.stringify(props));
+  const { title, subtitle } = props.data.site.siteMetadata;
+  const page = props.data.mdx;
+  const { title: pageTitle, description: pageDescription } = page.frontmatter;
+  const description = pageDescription !== null ? pageDescription : subtitle;
 
   return (
     <Layout>
@@ -20,10 +21,10 @@ const PageTemplate = props => {
         <PageTemplateDetails {...props} />
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default PageTemplate
+export default PageTemplate;
 
 export const pageQuery = graphql`
   query PageBySlug($slug: String!) {
@@ -47,14 +48,17 @@ export const pageQuery = graphql`
         }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
-        title
         date
+        title
         description
       }
     }
   }
-`
+`;

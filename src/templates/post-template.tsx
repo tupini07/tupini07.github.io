@@ -1,14 +1,14 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PostTemplateDetails from '../components/PostTemplateDetails'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import PostTemplateDetails from '../components/PostTemplateDetails';
 
 const PostTemplate = props => {
-  const { title, subtitle } = props.data.site.siteMetadata
-  const post = props.data.markdownRemark
-  const { title: postTitle, description: postDescription } = post.frontmatter
-  const description = postDescription !== null ? postDescription : subtitle
+  const { title, subtitle } = props.data.site.siteMetadata;
+  const post = props.data.mdx;
+  const { title: postTitle, description: postDescription } = post.frontmatter;
+  const description = postDescription !== null ? postDescription : subtitle;
 
   return (
     <Layout>
@@ -20,10 +20,10 @@ const PostTemplate = props => {
         <PostTemplateDetails {...props} />
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default PostTemplate
+export default PostTemplate;
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
@@ -40,9 +40,9 @@ export const pageQuery = graphql`
         url
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
-      html
+      body
       fields {
         tagSlugs
         slug
@@ -55,4 +55,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
