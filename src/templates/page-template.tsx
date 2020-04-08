@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PageTemplateDetails from '../components/PageTemplateDetails';
 
-const PageTemplate = ({data}) => {
+const PageTemplate = ({ data }) => {
   const { title, subtitle } = data.site.siteMetadata;
   const page = data.mdx;
   const { title: pageTitle, description: pageDescription } = page.frontmatter;
@@ -49,7 +49,7 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
-      html
+      body
       fields {
         slug
       }
