@@ -13,7 +13,7 @@ const TagsRoute = ({ data, location }) => {
     <Layout>
       <div>
         <Helmet title={`All Tags - ${title}`} />
-        <Sidebar data={data} location={location} />
+        <Sidebar location={location} />
         <div className="content">
           <div className="content__inner">
             <div className="page">
@@ -49,21 +49,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        subtitle
-        copyright
-        menu {
-          label
-          path
-        }
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
-        }
       }
     }
     allMdx(limit: 2000, filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }) {

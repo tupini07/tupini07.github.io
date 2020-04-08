@@ -1,13 +1,38 @@
 import React from 'react';
 import get from 'lodash/get';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import Menu from '../Menu';
 import Links from '../Links';
 import profilePic from './photo.jpg';
 import './style.scss';
 import { Location } from '@reach/router';
 
-const Sidebar = ({ data, location }) => {
+const Sidebar = ({ location }) => {
+  let data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+          subtitle
+          copyright
+          menu {
+            label
+            path
+          }
+          author {
+            name
+            email
+            telegram
+            twitter
+            github
+            rss
+            vk
+          }
+        }
+      }
+    }
+  `);
+
   const { author, subtitle, copyright, menu } = data.site.siteMetadata;
   const isHomePage = get(location, 'pathname', '/') === '/';
 

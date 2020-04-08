@@ -1,10 +1,10 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PageTemplateDetails from '../components/PageTemplateDetails';
 
-const PageTemplate = ({ data }) => {
+const PageTemplate = ({ data, location }) => {
   const { title, subtitle } = data.site.siteMetadata;
   const page = data.mdx;
   const { title: pageTitle, description: pageDescription } = page.frontmatter;
@@ -17,7 +17,7 @@ const PageTemplate = ({ data }) => {
           <title>{`${pageTitle} - ${title}`}</title>
           <meta name="description" content={description} />
         </Helmet>
-        <PageTemplateDetails data={data} />
+        <PageTemplateDetails data={data} location={location} />
       </div>
     </Layout>
   );
@@ -31,20 +31,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         subtitle
-        copyright
-        menu {
-          label
-          path
-        }
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
-        }
       }
     }
     mdx(fields: { slug: { eq: $slug } }) {

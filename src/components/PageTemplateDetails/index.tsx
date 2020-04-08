@@ -1,12 +1,14 @@
 import React from 'react';
 import './style.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Sidebar from '../Sidebar';
 
-const PageTemplateDetails = ({ data }) => {
+const PageTemplateDetails = ({ data, location }) => {
   const page = data.mdx;
 
   return (
     <div>
+      <Sidebar location={location} />
       <div className="content">
         <div className="content__inner">
           <div className="page">

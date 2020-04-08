@@ -20,7 +20,7 @@ const IndexRoute = ({ data, location }) => {
           <title>{title}</title>
           <meta name="description" content={subtitle} />
         </Helmet>
-        <Sidebar data={data} location={location} />
+        <Sidebar location={location} />
         <div className="content">
           <div className="content__inner">{items}</div>
         </div>
@@ -37,20 +37,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         subtitle
-        copyright
-        menu {
-          label
-          path
-        }
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
-        }
       }
     }
     allMdx(

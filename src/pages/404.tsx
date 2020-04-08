@@ -3,11 +3,11 @@ import { graphql } from 'gatsby';
 import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 
-const NotFoundRoute = ({ data, location }) => {
+const NotFoundRoute = ({ location }) => {
   return (
     <Layout>
       <div>
-        <Sidebar data={data} location={location} />
+        <Sidebar location={location} />
         <div className="content">
           <div className="content__inner">
             <div className="page">
@@ -24,28 +24,3 @@ const NotFoundRoute = ({ data, location }) => {
 };
 
 export default NotFoundRoute;
-
-export const pageQuery = graphql`
-  query NotFoundQuery {
-    site {
-      siteMetadata {
-        title
-        subtitle
-        copyright
-        menu {
-          label
-          path
-        }
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
-        }
-      }
-    }
-  }
-`;
