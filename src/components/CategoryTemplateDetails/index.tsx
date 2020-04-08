@@ -1,10 +1,10 @@
 import React from 'react';
 import Post from '../Post';
 
-const CategoryTemplateDetails = props => {
+const CategoryTemplateDetails = ({ pageContext, data }) => {
   const items = [];
-  const { category } = props.pageContext;
-  const posts = props.data.allMdx.edges;
+  const { category } = pageContext;
+  const posts = data.allMdx.edges;
   posts.forEach(post => {
     items.push(<Post data={post} key={post.node.fields.slug} />);
   });

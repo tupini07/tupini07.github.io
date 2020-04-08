@@ -3,12 +3,12 @@ import Sidebar from '../Sidebar';
 import './style.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-const PageTemplateDetails = props => {
-  const page = props.data.mdx;
+const PageTemplateDetails = ({ data }) => {
+  const page = data.mdx;
 
   return (
     <div>
-      <Sidebar {...props} />
+      <Sidebar data={data} />
       <div className="content">
         <div className="content__inner">
           <div className="page">

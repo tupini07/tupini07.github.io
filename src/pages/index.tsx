@@ -5,10 +5,10 @@ import Layout from '../components/Layout';
 import Post from '../components/Post';
 import Sidebar from '../components/Sidebar';
 
-const IndexRoute = props => {
+const IndexRoute = ({ data }) => {
   const items = [];
-  const { title, subtitle } = props.data.site.siteMetadata;
-  const posts = props.data.allMdx.edges;
+  const { title, subtitle } = data.site.siteMetadata;
+  const posts = data.allMdx.edges;
   posts.forEach(post => {
     items.push(<Post data={post} key={post.node.fields.slug} />);
   });
@@ -20,7 +20,7 @@ const IndexRoute = props => {
           <title>{title}</title>
           <meta name="description" content={subtitle} />
         </Helmet>
-        <Sidebar {...props} />
+        <Sidebar data={data} />
         <div className="content">
           <div className="content__inner">{items}</div>
         </div>

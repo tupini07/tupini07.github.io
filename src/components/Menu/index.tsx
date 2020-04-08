@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import './style.scss';
 
-const Menu = props => {
-  const menu = props.data;
-
+const Menu = ({ data: menu }) => {
   const menuBlock = (
     <ul className="menu__list">
       {menu.map(item => (

@@ -1,10 +1,11 @@
 import React from 'react';
 import Post from '../Post';
 
-const TagTemplateDetails = props => {
+const TagTemplateDetails = ({ pageContext, data }) => {
   const items = [];
-  const tagTitle = props.pageContext.tag;
-  const posts = props.data.allMdx.edges;
+  const tagTitle = pageContext.tag;
+  const posts = data.allMdx.edges;
+
   posts.forEach(post => {
     items.push(<Post data={post} key={post.node.fields.slug} />);
   });

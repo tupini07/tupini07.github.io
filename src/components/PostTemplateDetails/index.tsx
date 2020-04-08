@@ -5,11 +5,10 @@ import Disqus from '../Disqus/Disqus';
 import './style.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-const PostTemplateDetails = props => {
-  const { subtitle, author } = props.data.site.siteMetadata;
-  const post = props.data.mdx;
+const PostTemplateDetails = ({ data }) => {
+  const { subtitle, author } = data.site.siteMetadata;
+  const post = data.mdx;
   const tags = post.fields.tagSlugs;
-  console.log(JSON.stringify(props));
 
   const homeBlock = (
     <div>
@@ -36,7 +35,7 @@ const PostTemplateDetails = props => {
 
   const commentsBlock = (
     <div>
-      <Disqus postNode={post} siteMetadata={props.data.site.siteMetadata} />
+      <Disqus postNode={post} siteMetadata={data.site.siteMetadata} />
     </div>
   );
 

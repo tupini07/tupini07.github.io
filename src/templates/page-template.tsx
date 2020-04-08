@@ -4,10 +4,9 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PageTemplateDetails from '../components/PageTemplateDetails';
 
-const PageTemplate = props => {
-  console.log(JSON.stringify(props));
-  const { title, subtitle } = props.data.site.siteMetadata;
-  const page = props.data.mdx;
+const PageTemplate = ({data}) => {
+  const { title, subtitle } = data.site.siteMetadata;
+  const page = data.mdx;
   const { title: pageTitle, description: pageDescription } = page.frontmatter;
   const description = pageDescription !== null ? pageDescription : subtitle;
 
@@ -18,7 +17,7 @@ const PageTemplate = props => {
           <title>{`${pageTitle} - ${title}`}</title>
           <meta name="description" content={description} />
         </Helmet>
-        <PageTemplateDetails {...props} />
+        <PageTemplateDetails data={data} />
       </div>
     </Layout>
   );

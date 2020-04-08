@@ -2,8 +2,7 @@ import React from 'react';
 import './style.scss';
 import '../../assets/fonts/fontello-771c82e0/css/fontello.css';
 
-const Links = props => {
-  const author = props.data;
+const Links = ({ data: author }) => {
   const links = {
     telegram: author.telegram,
     twitter: author.twitter,

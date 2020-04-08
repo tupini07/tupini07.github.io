@@ -1,19 +1,19 @@
-import kebabCase from 'lodash/kebabCase'
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
+import kebabCase from 'lodash/kebabCase';
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import Helmet from 'react-helmet';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
 
-const CategoriesRoute = (props) => {
-  const { title } = props.data.site.siteMetadata
-  const categories = props.data.allMdx.group
+const CategoriesRoute = ({ data }) => {
+  const { title } = data.site.siteMetadata;
+  const categories = data.allMdx.group;
 
   return (
     <Layout>
       <div>
         <Helmet title={`All Categories - ${title}`} />
-        <Sidebar {...props} />
+        <Sidebar data={data} />
         <div className="content">
           <div className="content__inner">
             <div className="page">
@@ -22,10 +22,7 @@ const CategoriesRoute = (props) => {
                 <div className="categories">
                   <ul className="categories__list">
                     {categories.map(category => (
-                      <li
-                        key={category.fieldValue}
-                        className="categories__list-item"
-                      >
+                      <li key={category.fieldValue} className="categories__list-item">
                         <Link
                           to={`/categories/${kebabCase(category.fieldValue)}/`}
                           className="categories__list-item-link"
@@ -42,10 +39,10 @@ const CategoriesRoute = (props) => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default CategoriesRoute
+export default CategoriesRoute;
 
 export const pageQuery = graphql`
   query CategoriesQuery {
@@ -69,14 +66,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMdx(
-      limit: 2000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-    ) {
+    allMdx(limit: 2000, filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }) {
       group(field: frontmatter___category) {
         fieldValue
         totalCount
       }
     }
   }
-`
+`;

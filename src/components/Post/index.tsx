@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 import moment from 'moment';
 import './style.scss';
 
-const Post = props => {
-  const { title, date, category, description } = props.data.node.frontmatter;
-  const { slug, categorySlug } = props.data.node.fields;
+const Post = ({ data }) => {
+  const { title, date, category, description } = data.node.frontmatter;
+  const { slug, categorySlug } = data.node.fields;
 
   return (
     <div className="post">

@@ -1,19 +1,19 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import kebabCase from 'lodash/kebabCase'
-import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import Helmet from 'react-helmet';
+import kebabCase from 'lodash/kebabCase';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
 
-const TagsRoute = props => {
-  const { title } = props.data.site.siteMetadata
-  const tags = props.data.allMdx.group
+const TagsRoute = ({ data }) => {
+  const { title } = data.site.siteMetadata;
+  const tags = data.allMdx.group;
 
   return (
     <Layout>
       <div>
         <Helmet title={`All Tags - ${title}`} />
-        <Sidebar {...props} />
+        <Sidebar data={data} />
         <div className="content">
           <div className="content__inner">
             <div className="page">
@@ -39,10 +39,10 @@ const TagsRoute = props => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default TagsRoute
+export default TagsRoute;
 
 export const pageQuery = graphql`
   query TagsQuery {
@@ -66,14 +66,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMdx(
-      limit: 2000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-    ) {
+    allMdx(limit: 2000, filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
       }
     }
   }
-`
+`;

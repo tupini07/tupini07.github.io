@@ -5,16 +5,16 @@ import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import TagTemplateDetails from '../components/TagTemplateDetails';
 
-const TagTemplate = props => {
-  const { title } = props.data.site.siteMetadata;
-  const { tag } = props.pageContext;
+const TagTemplate = ({ data, pageContext }) => {
+  const { title } = data.site.siteMetadata;
+  const { tag } = pageContext;
 
   return (
     <Layout>
       <div>
         <Helmet title={`All Posts tagged as "${tag}" - ${title}`} />
-        <Sidebar {...props} />
-        <TagTemplateDetails {...props} />
+        <Sidebar data={data} />
+        <TagTemplateDetails data={data} pageContext={pageContext} />
       </div>
     </Layout>
   );

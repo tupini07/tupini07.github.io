@@ -1,26 +1,26 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
-import CategoryTemplateDetails from '../components/CategoryTemplateDetails'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
+import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
 
-const CategoryTemplate = props => {
-  const { title } = props.data.site.siteMetadata
-  const { category } = props.pageContext
+const CategoryTemplate = ({ data, pageContext }) => {
+  const { title } = data.site.siteMetadata;
+  const { category } = pageContext;
 
   return (
     <Layout>
       <div>
         <Helmet title={`${category} - ${title}`} />
-        <Sidebar {...props} />
-        <CategoryTemplateDetails {...props} />
+        <Sidebar data={data} />
+        <CategoryTemplateDetails data={data} pageContext={pageContext} />
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default CategoryTemplate
+export default CategoryTemplate;
 
 export const pageQuery = graphql`
   query CategoryPage($category: String) {
@@ -47,11 +47,7 @@ export const pageQuery = graphql`
     allMdx(
       limit: 1000
       filter: {
-        frontmatter: {
-          category: { eq: $category }
-          layout: { eq: "post" }
-          draft: { ne: true }
-        }
+        frontmatter: { category: { eq: $category }, layout: { eq: "post" }, draft: { ne: true } }
       }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
@@ -71,4 +67,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
