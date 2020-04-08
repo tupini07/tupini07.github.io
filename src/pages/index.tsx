@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import Post from '../components/Post';
 import Sidebar from '../components/Sidebar';
 
-const IndexRoute = ({ data }) => {
+const IndexRoute = ({ data, location }) => {
   const items = [];
   const { title, subtitle } = data.site.siteMetadata;
   const posts = data.allMdx.edges;
@@ -20,7 +20,7 @@ const IndexRoute = ({ data }) => {
           <title>{title}</title>
           <meta name="description" content={subtitle} />
         </Helmet>
-        <Sidebar data={data} />
+        <Sidebar data={data} location={location} />
         <div className="content">
           <div className="content__inner">{items}</div>
         </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
 import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
 
 const CategoryTemplate = ({ data, pageContext }) => {
@@ -13,7 +12,6 @@ const CategoryTemplate = ({ data, pageContext }) => {
     <Layout>
       <div>
         <Helmet title={`${category} - ${title}`} />
-        <Sidebar data={data} />
         <CategoryTemplateDetails data={data} pageContext={pageContext} />
       </div>
     </Layout>

@@ -5,10 +5,11 @@ import Menu from '../Menu';
 import Links from '../Links';
 import profilePic from './photo.jpg';
 import './style.scss';
+import { Location } from '@reach/router';
 
-const Sidebar = ({ data }) => {
+const Sidebar = ({ data, location }) => {
   const { author, subtitle, copyright, menu } = data.site.siteMetadata;
-  const isHomePage = get(window.location, 'pathname', '/') === '/';
+  const isHomePage = get(location, 'pathname', '/') === '/';
 
   /* eslint-disable jsx-a11y/img-redundant-alt */
   const authorBlock = (

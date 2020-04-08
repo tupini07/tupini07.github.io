@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 
-const CategoriesRoute = ({ data }) => {
+const CategoriesRoute = ({ data, location }) => {
   const { title } = data.site.siteMetadata;
   const categories = data.allMdx.group;
 
@@ -13,7 +13,7 @@ const CategoriesRoute = ({ data }) => {
     <Layout>
       <div>
         <Helmet title={`All Categories - ${title}`} />
-        <Sidebar data={data} />
+        <Sidebar data={data} location={location} />
         <div className="content">
           <div className="content__inner">
             <div className="page">

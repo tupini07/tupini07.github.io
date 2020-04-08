@@ -3,11 +3,11 @@ import { graphql } from 'gatsby';
 import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 
-const NotFoundRoute = ({ data }) => {
+const NotFoundRoute = ({ data, location }) => {
   return (
     <Layout>
       <div>
-        <Sidebar data={data} />
+        <Sidebar data={data} location={location} />
         <div className="content">
           <div className="content__inner">
             <div className="page">

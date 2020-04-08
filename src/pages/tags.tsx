@@ -5,7 +5,7 @@ import kebabCase from 'lodash/kebabCase';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 
-const TagsRoute = ({ data }) => {
+const TagsRoute = ({ data, location }) => {
   const { title } = data.site.siteMetadata;
   const tags = data.allMdx.group;
 
@@ -13,7 +13,7 @@ const TagsRoute = ({ data }) => {
     <Layout>
       <div>
         <Helmet title={`All Tags - ${title}`} />
-        <Sidebar data={data} />
+        <Sidebar data={data} location={location} />
         <div className="content">
           <div className="content__inner">
             <div className="page">
