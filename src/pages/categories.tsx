@@ -4,8 +4,9 @@ import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
+import { CategoriesQuery } from '../graphql';
 
-const CategoriesRoute = ({ data, location }) => {
+const CategoriesRoute = ({ data, location }: { data: CategoriesQuery }) => {
   const { title } = data.site.siteMetadata;
   const categories: Array<any> = data.allMdx.group;
 
@@ -63,7 +64,7 @@ const CategoriesRoute = ({ data, location }) => {
 export default CategoriesRoute;
 
 export const pageQuery = graphql`
-  query CategoriesQuery {
+  query Categories {
     site {
       siteMetadata {
         title
