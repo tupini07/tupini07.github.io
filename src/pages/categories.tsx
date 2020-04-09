@@ -7,22 +7,37 @@ import Sidebar from '../components/Sidebar';
 
 const CategoriesRoute = ({ data, location }) => {
   const { title } = data.site.siteMetadata;
-  const categories = data.allMdx.group;
+  const categories: Array<any> = data.allMdx.group;
 
-  // todo : nested categories (categories hierarchy)
-  // todo : clean up structure (it's quite messy)
+  // // for the moment this is dead code
+  // const hierarchy = categories.reduce((a, b) => {
+  //   let splitted = b.fieldValue.split('/');
+
+  //   if (splitted.length > 0) {
+  //     let currentNode = a;
+  //     for (let v of splitted) {
+  //       if (!(v in currentNode)) {
+  //         currentNode[v] = { _val: 0 };
+  //       }
+  //       currentNode[v]._val += b.totalCount;
+
+  //       currentNode = currentNode[v];
+  //     }
+  //   }
+  //   return a;
+  // }, {});
 
   return (
     <Layout>
       <div>
         <Helmet title={`All Categories - ${title}`} />
         <Sidebar location={location} />
-          <div className="content">
-            <div className="content__inner">
-              <div className="page">
-                <h1 className="page__title">Categories</h1>
-                <div className="page__body">
-                  <div className="categories">
+        <div className="content">
+          <div className="content__inner">
+            <div className="page">
+              <h1 className="page__title">Categories</h1>
+              <div className="page__body">
+                <div className="categories">
                   <ul className="categories__list">
                     {categories.map(category => (
                       <li key={category.fieldValue} className="categories__list-item">
@@ -39,7 +54,7 @@ const CategoriesRoute = ({ data, location }) => {
               </div>
             </div>
           </div>
-          </div>
+        </div>
       </div>
     </Layout>
   );
