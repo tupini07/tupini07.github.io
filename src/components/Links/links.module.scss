@@ -3,7 +3,7 @@
 
 .links {
   @include margin-bottom(1);
-  &__list {
+  &-list {
     display: flex;
     list-style: none;
     padding: 0;
