@@ -6,10 +6,11 @@ import Links from '../Links';
 import profilePic from './photo.jpg';
 import './style.scss';
 import { Location } from '@reach/router';
+import { SidebarInformationQuery } from '../../graphql';
 
 const Sidebar = ({ location }) => {
-  let data = useStaticQuery(graphql`
-    {
+  let data: SidebarInformationQuery = useStaticQuery(graphql`
+    query sidebarInformation {
       site {
         siteMetadata {
           title
@@ -39,7 +40,7 @@ const Sidebar = ({ location }) => {
   /* eslint-disable jsx-a11y/img-redundant-alt */
   const authorBlock = (
     <div>
-      <Link to="/">
+      {/* <Link to="/">
         <img
           src={profilePic}
           className="sidebar__author-photo"
@@ -47,7 +48,7 @@ const Sidebar = ({ location }) => {
           height="75"
           alt={author.name}
         />
-      </Link>
+      </Link> */}
       {isHomePage ? (
         <h1 className="sidebar__author-title">
           <Link className="sidebar__author-title-link" to="/">
