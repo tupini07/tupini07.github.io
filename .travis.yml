@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - "12"
 
+cache:
+  yarn: true
+
 stages:
   - name: install
     if: branch = dev
@@ -9,6 +12,6 @@ stages:
     if: branch = dev
 
 install:
-  - npm ci
+  - yarn install --frozen-lockfile
 script:
-  - npm run deploy-ci
+  - yarn deploy-ci
