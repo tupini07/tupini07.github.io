@@ -8,6 +8,8 @@ module.exports = {
     url,
     siteUrl: url,
     title: 'Blog',
+    description: 'Some description',
+    image: '/static/fakeImage.png',
     subtitle:
       'Just a random blog with hardly any original content.',
     copyright: 'Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Un-ported License',
