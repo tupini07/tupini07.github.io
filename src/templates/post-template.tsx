@@ -3,8 +3,10 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PostTemplateDetails from '../components/PostTemplateDetails';
+import SEO from '../components/SEO';
+import { PostBySlugQuery } from '../graphql';
 
-const PostTemplate = ({ data }) => {
+const PostTemplate = ({ data }: { data: PostBySlugQuery }) => {
   const { title, subtitle } = data.site.siteMetadata;
   const post = data.mdx;
   const { title: postTitle, description: postDescription } = post.frontmatter;
@@ -15,8 +17,9 @@ const PostTemplate = ({ data }) => {
       <div>
         <Helmet>
           <title>{`${postTitle} - ${title}`}</title>
-          <meta name="description" content={description} />
+          <meta name='description' content={description} />
         </Helmet>
+        <SEO article={true} title={postTitle} description={description} />
         <PostTemplateDetails data={data} />
       </div>
     </Layout>
