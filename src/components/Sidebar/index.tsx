@@ -73,6 +73,7 @@ const Sidebar = ({ location }) => {
         <div className="sidebar__author">{authorBlock}</div>
         <div>
           <Menu data={menu} />
+          <br/>
           <Links data={author} />
           <p className="sidebar__copyright">{copyright}</p>
         </div>
