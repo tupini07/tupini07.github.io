@@ -57,13 +57,18 @@ const PostTemplateDetails = ({ data }) => {
           <hr />
           <p className="post-single__footer-text">
             {subtitle}
-            <a
-              href={`https://twitter.com/${author.twitter}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <br /> <strong>{author.name}</strong> on Twitter
-            </a>
+            <br />
+            {author.twitter ? (
+              <a
+                href={`https://twitter.com/${author.twitter}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>{author.name}</strong> on Twitter
+              </a>
+            ) : (
+              <strong>{author.name}</strong>
+            )}
           </p>
           {commentsBlock}
         </div>
