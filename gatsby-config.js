@@ -171,6 +171,16 @@ module.exports = {
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           `gatsby-remark-katex`,
+          'gatsby-remark-bibliography',
+          {
+            resolve: `gatsby-remark-footnotes`,
+            options: {
+              footnoteBackRefPreviousElementDisplay: "inline",
+              footnoteBackRefDisplay: "inline",
+              footnoteBackRefAnchorStyle: `text-decoration: none;`,
+              useFootnoteMarkerText: false // Defaults to false
+            }
+          }
         ],
       },
     },
