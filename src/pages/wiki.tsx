@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
+import WikiLink from '../components/WikiLink';
 
 const WikiRoute = ({ data, location }) => {
   const { title } = data.site.siteMetadata;
@@ -23,12 +24,7 @@ const WikiRoute = ({ data, location }) => {
                   <ul className="categories__list">
                     {wikiPages.map(wikiP => (
                       <li key={wikiP.frontmatter.wid} className="categories__list-item">
-                        <Link
-                          to={wikiP.fields.slug}
-                          className="categories__list-item-link"
-                        >
-                          {wikiP.frontmatter.title} ({new Date(wikiP.frontmatter.date).toString()})
-                        </Link>
+                        <WikiLink wid={wikiP.frontmatter.wid} />
                       </li>
                     ))}
                   </ul>
