@@ -35,6 +35,10 @@ module.exports = {
         label: 'Categories',
         path: '/categories/',
       },
+      {
+        label: 'Wiki',
+        path: '/wiki/',
+      },
     ],
     author: {
       name: 'Andrea Tupini',
@@ -59,6 +63,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/posts`,
         name: 'posts',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/wiki`,
+        name: 'wiki',
       },
     },
     {

@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const postTemplate = path.resolve('./src/templates/post-template.tsx')
+  const wikiPageTemplate = path.resolve('./src/templates/wiki-page-template.tsx')
   const pageTemplate = path.resolve('./src/templates/page-template.tsx')
   const tagTemplate = path.resolve('./src/templates/tag-template.tsx')
   const categoryTemplate = path.resolve(
@@ -42,6 +43,12 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         path: edge.node.fields.slug,
         component: slash(pageTemplate),
+        context: { slug: edge.node.fields.slug },
+      })
+    } else if (_.get(edge, 'node.frontmatter.layout') === 'wiki') {
+      createPage({
+        path: edge.node.fields.slug,
+        component: slash(wikiPageTemplate),
         context: { slug: edge.node.fields.slug },
       })
     } else if (_.get(edge, 'node.frontmatter.layout') === 'post') {
@@ -119,5 +126,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       )}/`
       createNodeField({ node, name: 'categorySlug', value: categorySlug })
     }
+  }
+
+  if (node.internal.type === 'Mdx' && node.frontmatter.layout === 'wiki') {
+    // createNodeField({
+    //   node,
+    //   name: 'wid',
+    //   value: node.frontmatter.wid,
+    // });
   }
 }
