@@ -20,7 +20,8 @@ const WikiLink = ({ href, children }: { href: string; children?: string }) => {
     }
   `);
 
-  if (href.startsWith('WID:')) {
+  let isInternalLink = href.startsWith('WID:');
+  if (isInternalLink) {
     const page = data.allMdx.nodes.find((e) => e.frontmatter.wid === href);
 
     // If link title starts with '!!' then ignore it and use the one from
@@ -32,7 +33,16 @@ const WikiLink = ({ href, children }: { href: string; children?: string }) => {
     href = page.fields.slug;
   }
 
-  return <a href={href}>{children}</a>;
+  let linkClassName = isInternalLink ? '' : 'external-link';
+
+  if (href.includes('.wikipedia.')) linkClassName = 'external-wiki-link';
+  else if (href.includes('.github.com')) linkClassName = 'external-github-link';
+
+  return (
+    <a href={href} className={linkClassName}>
+      {children}
+    </a>
+  );
 };
 
 export default WikiLink;

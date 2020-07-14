@@ -1,9 +1,9 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import PostTemplateDetails from '../components/PostTemplateDetails';
+import WikiLayout from '../components/WikiLayout';
 import SEO from '../components/SEO';
+import WikiTemplateDetails from '../components/WikiTemplateDetails';
 import { PostBySlugQuery } from '../graphql';
 
 const WikiPageTemplate = ({ data }: { data: PostBySlugQuery }) => {
@@ -13,16 +13,16 @@ const WikiPageTemplate = ({ data }: { data: PostBySlugQuery }) => {
   const description = postDescription !== null ? postDescription : subtitle;
 
   return (
-    <Layout>
+    <WikiLayout>
       <div>
         <Helmet>
           <title>{`${postTitle} - ${title}`}</title>
           <meta name='description' content={description} />
         </Helmet>
         <SEO article={true} title={postTitle} description={description} />
-        <PostTemplateDetails data={data} />
+        <WikiTemplateDetails data={data} />
       </div>
-    </Layout>
+    </WikiLayout>
   );
 };
 

@@ -1,0 +1,17 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.wikiLeftSidebar {
+}
+
+.wikiMainContainer {
+  margin: 0 30px;
+}
+
+.wikiBacklinks {
+}

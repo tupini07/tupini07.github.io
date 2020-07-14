@@ -1,0 +1,10 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+h1 {
+  margin-bottom: 5px;
+}
+
+.published-date {
+  color: $color-gray;
+}
