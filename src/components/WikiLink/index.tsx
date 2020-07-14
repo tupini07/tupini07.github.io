@@ -20,12 +20,14 @@ const WikiLink = ({ href, children }: { href: string; children?: string }) => {
     }
   `);
 
-
-
-  if (href.startsWith("WID:")) {
-
+  if (href.startsWith('WID:')) {
     const page = data.allMdx.nodes.find((e) => e.frontmatter.wid === href);
-    children = children || page.frontmatter.title;
+
+    // If link title starts with '!!' then ignore it and use the one from
+    // the actual page
+    children = children.startsWith('!!')
+      ? page.frontmatter.title
+      : children || page.frontmatter.title;
 
     href = page.fields.slug;
   }
