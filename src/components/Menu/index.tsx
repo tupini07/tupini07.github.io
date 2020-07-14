@@ -1,8 +1,9 @@
-import React from 'react';
 import { Link } from 'gatsby';
+import React from 'react';
 import menuStyle from './menu.module.scss';
 
 const Menu = ({ data: menu }) => {
+
   const menuBlock = (
     <ul className={menuStyle.menuList}>
       {menu.map(item => (
