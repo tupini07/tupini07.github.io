@@ -130,14 +130,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 
   if (node.internal.type === 'Mdx' && node.frontmatter.layout === 'wiki') {
-    const { dir } = path.parse(node.fileAbsolutePath);
+    const parsedPath = path.parse(node.fileAbsolutePath);
+    const { dir } = parsedPath;
+
+    let finalPath = dir.substring(dir.indexOf('/wiki/'));
+    if (parsedPath.base !== 'index.mdx') {
+      finalPath += `/${parsedPath.name}`;
+    }
 
     // the slug is created based on the path of the file in the file system
     // only if no explicit path is provided in the frontmatter
     createNodeField({
       node,
       name: 'slug',
-      value: node.frontmatter.path || dir.substring(dir.indexOf('/wiki/')),
+      value: node.frontmatter.path || finalPath,
     });
   }
 }
