@@ -4,22 +4,21 @@ import Helmet from 'react-helmet';
 import WikiLayout from '../components/WikiLayout';
 import SEO from '../components/SEO';
 import WikiTemplateDetails from '../components/WikiTemplateDetails';
-import { PostBySlugQuery } from '../graphql';
+import { WikiPagesQuery } from '../graphql';
 
-const WikiPageTemplate = ({ data }: { data: PostBySlugQuery }) => {
+const WikiPageTemplate = ({ data }: { data: WikiPagesQuery }) => {
   const { title, subtitle } = data.site.siteMetadata;
   const post = data.mdx;
-  const { title: postTitle, description: postDescription } = post.frontmatter;
-  const description = postDescription !== null ? postDescription : subtitle;
+  const { title: postTitle } = post.frontmatter;
 
   return (
-    <WikiLayout>
+    <WikiLayout wid={data.mdx.frontmatter.wid}>
       <div>
         <Helmet>
           <title>{`${postTitle} - ${title}`}</title>
-          <meta name='description' content={description} />
+          <meta name='description' content={subtitle} />
         </Helmet>
-        <SEO article={true} title={postTitle} description={description} />
+        <SEO article={true} title={postTitle} description={subtitle} />
         <WikiTemplateDetails data={data} />
       </div>
     </WikiLayout>
@@ -29,7 +28,7 @@ const WikiPageTemplate = ({ data }: { data: PostBySlugQuery }) => {
 export default WikiPageTemplate;
 
 export const pageQuery = graphql`
-  query WikiPages($slug: String!) {
+  query WikiPagesQuery($slug: String!) {
     site {
       siteMetadata {
         title
