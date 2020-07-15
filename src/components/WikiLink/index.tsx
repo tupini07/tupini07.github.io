@@ -1,7 +1,7 @@
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import moment from 'moment';
 import React from 'react';
-import './style.scss';
+import wikiLinkStyle from './wikilink.module.scss';
 
 const WikiLink = ({ href, children }: { href: string; children?: string }) => {
   const data = useStaticQuery(graphql`
@@ -20,7 +20,7 @@ const WikiLink = ({ href, children }: { href: string; children?: string }) => {
     }
   `);
 
-  let linkClassName = 'external-link';
+  let linkClassName = wikiLinkStyle.external_link;
 
   if (href.startsWith('WID:')) {
     const page = data.allMdx.nodes.find((e) => e.frontmatter.wid === href);
@@ -34,16 +34,16 @@ const WikiLink = ({ href, children }: { href: string; children?: string }) => {
         : children || page.frontmatter.title;
 
       href = page.fields.slug;
-      linkClassName = 'internal-link';
+      linkClassName = wikiLinkStyle.internal_link;
     } else {
       children = `BROKEN-LINK (${href})`;
       href = '#';
-      linkClassName = 'internal-link broken-link';
+      linkClassName = `${wikiLinkStyle.internal_link} ${wikiLinkStyle.broken_link}`;
     }
   }
 
-  if (href.includes('.wikipedia.')) linkClassName = 'external-wiki-link';
-  else if (href.includes('.github.')) linkClassName = 'external-github-link';
+  if (href.includes('.wikipedia.')) linkClassName = wikiLinkStyle.external_wiki_link;
+  else if (href.includes('.github.')) linkClassName = wikiLinkStyle.external_github_link;
 
   return (
     <a href={href} className={linkClassName}>
