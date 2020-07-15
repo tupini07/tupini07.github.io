@@ -4,6 +4,4 @@
   - this is for external integration
 - Create page for wiki item
   - create backlinks section
-- derive wiki slug from folder structure
-  - If specified in frontmatter then use the one in frontmatter
 - clean up the "index wiki page"

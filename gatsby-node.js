@@ -2,6 +2,7 @@ const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
 const slash = require('slash')
+const { parse } = require('path')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -129,10 +130,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 
   if (node.internal.type === 'Mdx' && node.frontmatter.layout === 'wiki') {
-    // createNodeField({
-    //   node,
-    //   name: 'wid',
-    //   value: node.frontmatter.wid,
-    // });
+    const { dir } = path.parse(node.fileAbsolutePath);
+
+    // the slug is created based on the path of the file in the file system
+    // only if no explicit path is provided in the frontmatter
+    createNodeField({
+      node,
+      name: 'slug',
+      value: node.frontmatter.path || dir.substring(dir.indexOf('/wiki/')),
+    });
   }
 }
