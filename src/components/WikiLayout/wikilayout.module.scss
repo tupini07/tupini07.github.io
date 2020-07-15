@@ -3,15 +3,17 @@
 
 .layoutContainer {
   display: flex;
-  flex-direction: column;
-}
-
-.wikiLeftSidebar {
-}
-
-.wikiMainContainer {
   margin: 0 30px;
 }
 
+.wikiLeftSidebar {
+  flex-grow: 1;
+}
+
+.wikiMainContainer {
+  flex-grow: 2;
+}
+
 .wikiBacklinks {
+  flex-grow: 1;
 }
