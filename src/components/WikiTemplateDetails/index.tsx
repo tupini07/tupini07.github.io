@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
 import Disqus from '../Disqus/Disqus';
-import './style.scss';
+import wikiTDStyle from './wikitemplatedetails.module.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 import WikiLink from '../WikiLink';
@@ -11,14 +11,6 @@ const WikiTemplateDetails = ({ data }) => {
   const { subtitle, author } = data.site.siteMetadata;
   const post = data.mdx;
   const tags = post.fields.tagSlugs;
-
-  const homeBlock = (
-    <div>
-      <Link className='post-single__home-button' to='/'>
-        All Articles
-      </Link>
-    </div>
-  );
 
   const tagsBlock = (
     <div className='post-single__tags'>
@@ -37,12 +29,11 @@ const WikiTemplateDetails = ({ data }) => {
 
   return (
     <div>
-      {homeBlock}
-      <h1>{post.frontmatter.title}</h1>
-      <div className='published-date'>
+      <h1 className={wikiTDStyle.title}>{post.frontmatter.title}</h1>
+      <div className={wikiTDStyle.subtitleItem}>
         <em>{post.frontmatter.wid}</em>
       </div>
-      <div className='published-date'>
+      <div className={wikiTDStyle.subtitleItem}>
         <em>Created on: {moment(post.frontmatter.date).format('D MMM YYYY')}</em>
       </div>
       <MDXProvider

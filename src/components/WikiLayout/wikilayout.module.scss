@@ -1,6 +1,11 @@
 @import '../../assets/scss/variables';
 @import '../../assets/scss/mixins';
 
+.backHomeLink {
+  font-size: 1.4em;
+  margin: 15px;
+}
+
 .layoutContainer {
   display: flex;
   margin: 0 30px;

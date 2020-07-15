@@ -1,10 +1,10 @@
 @import '../../assets/scss/variables';
 @import '../../assets/scss/mixins';
 
-h1 {
-  margin-bottom: 5px;
+.title {
+  margin: 5px 0;
 }
 
-.published-date {
+.subtitleItem {
   color: $color-gray;
 }
