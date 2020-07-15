@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import wikiLinkStyle from '../WikiLink/wikilink.module.scss';
+import wikiBacklinksStyle from './wikibacklink.module.scss';
 
 const WikiBacklinks = ({ wid }: { wid: string }) => {
   const data = useStaticQuery(graphql`
@@ -24,7 +25,7 @@ const WikiBacklinks = ({ wid }: { wid: string }) => {
   const relevantNodes = nodes.filter((e) => e.rawBody.includes(wid) && e.frontmatter.wid !== wid);
   return (
     <div>
-      <h1>Backlinks</h1>
+      <h1 className={wikiBacklinksStyle.title}>Backlinks</h1>
       <ul>
         {relevantNodes.map((e) => (
           <li>

@@ -7,18 +7,29 @@
 }
 
 .layoutContainer {
-  display: flex;
   margin: 0 30px;
+  @include breakpoint-md {
+    display: flex;
+  }
 }
 
 .wikiLeftSidebar {
-  flex-grow: 1;
+  max-width: 100%;
+  @include breakpoint-md {
+    min-width: 20%;
+  }
 }
 
 .wikiMainContainer {
-  flex-grow: 2;
+  max-width: 100%;
+  @include breakpoint-md {
+    min-width: 60%;
+  }
 }
 
 .wikiBacklinks {
-  flex-grow: 1;
+  max-width: 100%;
+  @include breakpoint-md {
+    min-width: 20%;
+  }
 }
