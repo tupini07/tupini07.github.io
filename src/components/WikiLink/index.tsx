@@ -20,23 +20,30 @@ const WikiLink = ({ href, children }: { href: string; children?: string }) => {
     }
   `);
 
-  let isInternalLink = href.startsWith('WID:');
-  if (isInternalLink) {
+  let linkClassName = 'external-link';
+
+  if (href.startsWith('WID:')) {
     const page = data.allMdx.nodes.find((e) => e.frontmatter.wid === href);
 
-    // If link title starts with '!!' then ignore it and use the one from
-    // the actual page
-    children = children.startsWith('!!')
-      ? page.frontmatter.title
-      : children || page.frontmatter.title;
+    // if the page doesn't exist
+    if (page) {
+      // If link title starts with '!!' then ignore it and use the one from
+      // the actual page
+      children = children.startsWith('!!')
+        ? page.frontmatter.title
+        : children || page.frontmatter.title;
 
-    href = page.fields.slug;
+      href = page.fields.slug;
+      linkClassName = 'internal-link';
+    } else {
+      children = `BROKEN-LINK (${href})`;
+      href = '#';
+      linkClassName = 'internal-link broken-link';
+    }
   }
 
-  let linkClassName = isInternalLink ? '' : 'external-link';
-
   if (href.includes('.wikipedia.')) linkClassName = 'external-wiki-link';
-  else if (href.includes('.github.com')) linkClassName = 'external-github-link';
+  else if (href.includes('.github.')) linkClassName = 'external-github-link';
 
   return (
     <a href={href} className={linkClassName}>
