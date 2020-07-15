@@ -39,7 +39,10 @@ const WikiTemplateDetails = ({ data }) => {
     <div>
       {homeBlock}
       <h1>{post.frontmatter.title}</h1>
-      <div className="published-date">
+      <div className='published-date'>
+        <em>{post.frontmatter.wid}</em>
+      </div>
+      <div className='published-date'>
         <em>Created on: {moment(post.frontmatter.date).format('D MMM YYYY')}</em>
       </div>
       <MDXProvider
