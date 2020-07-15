@@ -5,6 +5,7 @@
 - Create page for wiki item
   - create backlinks section
 - clean up the "index wiki page"
+- clean up the broken links page
 - `edit in github` for wiki pages
   - edit for existing pages
   - offer to create it if the wiki page does not exist

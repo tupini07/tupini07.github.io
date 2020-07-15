@@ -18,6 +18,10 @@ const WikiRoute = ({ data, location }) => {
           <div className="content__inner">
             <div className="page">
               <h1 className="page__title">Wiki - Index</h1>
+              <div>
+                {/* Need to change this to be nicer */}
+                <Link to='/wiki-broken-links'>Broken Links</Link>
+              </div>
               <div className="page__body">
                 <h3>Recent pages</h3>
                 <div className="categories">
