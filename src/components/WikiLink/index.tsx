@@ -29,9 +29,11 @@ const WikiLink = ({ href, children }: { href: string; children?: string }) => {
     if (page) {
       // If link title starts with '!!' then ignore it and use the one from
       // the actual page
-      children = children.startsWith('!!')
-        ? page.frontmatter.title
-        : children || page.frontmatter.title;
+      if (children)
+        children = children.startsWith('!!')
+          ? page.frontmatter.title
+          : children || page.frontmatter.title;
+      else children = page.frontmatter.title;
 
       href = page.fields.slug;
       linkClassName = wikiLinkStyle.internal_link;

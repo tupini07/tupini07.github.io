@@ -24,7 +24,7 @@ const WikiRoute = ({ data, location }) => {
                   <ul className="categories__list">
                     {wikiPages.map(wikiP => (
                       <li key={wikiP.frontmatter.wid} className="categories__list-item">
-                        <WikiLink url={wikiP.frontmatter.wid} />
+                        <WikiLink href={wikiP.frontmatter.wid} />
                       </li>
                     ))}
                   </ul>
