@@ -17,12 +17,13 @@
     "build": "gatsby build",
     "clean:public": "rm -rf public",
     "clean": "npm run clean:public",
-    "lint": "./node_modules/.bin/eslint --cache --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "deploy-ci": "gatsby build && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/tupini07/tupini07.github.io.git",
-    "codegen": "graphql-codegen --config graphql-codegen.yml"
+    "codegen": "graphql-codegen --config graphql-codegen.yml",
+    "type-check": "tsc --noEmit",
+    "lint": "tslint --project ."
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.6",
@@ -42,7 +43,8 @@
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "^2.6.19",
     "gatsby-plugin-sitemap": "^2.4.11",
-    "gatsby-plugin-typescript": "^2.4.14",
+    "gatsby-plugin-tslint": "^0.0.2",
+    "gatsby-plugin-typescript": "^2.4.15",
     "gatsby-remark-bibliography": "https://github.com/ptigas/gatsby-remark-bibliography",
     "gatsby-remark-copy-linked-files": "^2.3.11",
     "gatsby-remark-footnotes": "^0.0.7",
@@ -72,6 +74,8 @@
     "@graphql-codegen/typescript": "^1.17.0",
     "@graphql-codegen/typescript-operations": "^1.17.0",
     "@types/graphql": "^14.5.0",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.4.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -82,6 +86,12 @@
     "gh-pages": "^3.1.0",
     "lost": "^8.2.0",
     "postcss-pxtorem": "^5.1.1",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-loader": "^3.5.4",
+    "tslint-plugin-prettier": "^2.3.0",
+    "tslint-react": "^5.0.0",
+    "typescript": "^3.9.6"
   }
 }

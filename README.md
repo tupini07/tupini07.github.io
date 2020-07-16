@@ -14,3 +14,8 @@
 - would be nice to list the commits that changed a wiki page (maybe something like page history)
 - make headlines foldable
 - add creative commons disclaimer to wiki item (footer?)
+- Create a graph of depth N
+  - Interesting for all the wiki articles starting (with depth = inf)
+  - And also for a given article (with actual depth)
+- Consider changing name of `wiki` to something like `knowledge`
+  - since it is not really a wiki but an interconnected web of small concepts
