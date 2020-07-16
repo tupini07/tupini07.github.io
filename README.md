@@ -13,3 +13,4 @@
 - Add a search page for wiki
 - would be nice to list the commits that changed a wiki page (maybe something like page history)
 - make headlines foldable
+- add creative commons disclaimer to wiki item (footer?)
