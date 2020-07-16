@@ -138,6 +138,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       finalPath += `/${parsedPath.name}`;
     }
 
+    // collapse all spaces to one dash
+    finalPath = finalPath.replace(/\s+/g, "-");
+
     // the slug is created based on the path of the file in the file system
     // only if no explicit path is provided in the frontmatter
     createNodeField({
