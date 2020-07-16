@@ -235,5 +235,6 @@ module.exports = {
         precision: 8,
       },
     },
+    'gatsby-source-local-git'
   ],
 }
