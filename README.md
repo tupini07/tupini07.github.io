@@ -12,3 +12,4 @@
     - for this, the wikiLink component should be updated to redirect to a _new_ page telling that the "item with ID" does not exist
 - Add a search page for wiki
 - would be nice to list the commits that changed a wiki page (maybe something like page history)
+- make headlines foldable

@@ -17,23 +17,24 @@ const WikiRoute = ({ data, location }) => {
         <div className="content">
           <div className="content__inner">
             <div className="page">
-              <h1 className="page__title">Wiki - Index</h1>
+              <h1 className="page__title">Wiki</h1>
               <div>
                 {/* Need to change this to be nicer */}
                 <Link to='/wiki-broken-links'>Broken Links</Link>
               </div>
-              <div className="page__body">
-                <h3>Recent pages</h3>
-                <div className="categories">
-                  <ul className="categories__list">
-                    {wikiPages.map(wikiP => (
-                      <li key={wikiP.frontmatter.wid} className="categories__list-item">
-                        <WikiLink href={wikiP.frontmatter.wid} />
-                      </li>
-                    ))}
-                  </ul>
+              <WikiLink href="WID:20200716134828488"/>
+                <div className="page__body">
+                  <h3>Recent pages</h3>
+                  <div className="categories">
+                    <ul className="categories__list">
+                      {wikiPages.map(wikiP => (
+                        <li key={wikiP.frontmatter.wid} className="categories__list-item">
+                          <WikiLink href={wikiP.frontmatter.wid} /> ({wikiP.frontmatter.date})
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
