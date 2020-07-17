@@ -36,8 +36,8 @@ module.exports = {
         path: '/categories/',
       },
       {
-        label: 'Wiki',
-        path: '/wiki/',
+        label: 'Zettelkasten',
+        path: '/zettelkasten/',
       },
     ],
     author: {
@@ -68,8 +68,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/wiki`,
-        name: 'wiki',
+        path: `${__dirname}/content/zettelkasten`,
+        name: 'zettelkasten',
       },
     },
     {

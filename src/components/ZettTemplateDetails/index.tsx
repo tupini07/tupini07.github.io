@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
 import Disqus from '../Disqus/Disqus';
-import wikiTDStyle from './wikitemplatedetails.module.scss';
+import zettTDStyle from './zetttemplatedetails.module.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
-import WikiLink from '../WikiLink';
+import ZettLink from '../ZettLink';
 
-const WikiTemplateDetails = ({ data }) => {
+const ZettTemplateDetails = ({ data }) => {
   const { subtitle, author } = data.site.siteMetadata;
   const post = data.mdx;
   const tags = post.fields.tagSlugs;
@@ -29,16 +29,16 @@ const WikiTemplateDetails = ({ data }) => {
 
   return (
     <div>
-      <h1 className={wikiTDStyle.title}>{post.frontmatter.title}</h1>
-      <div className={wikiTDStyle.subtitleItem}>
+      <h1 className={zettTDStyle.title}>{post.frontmatter.title}</h1>
+      <div className={zettTDStyle.subtitleItem}>
         <em>{post.frontmatter.wid}</em>
       </div>
-      <div className={wikiTDStyle.subtitleItem}>
+      <div className={zettTDStyle.subtitleItem}>
         <em>Created on: {moment(post.frontmatter.date).format('D MMM YYYY')}</em>
       </div>
       <MDXProvider
         components={{
-          a: (props) => <WikiLink {...props} />,
+          a: (props) => <ZettLink {...props} />,
         }}
       >
         <MDXRenderer className='post-single__body'>{post.body}</MDXRenderer>
@@ -48,4 +48,4 @@ const WikiTemplateDetails = ({ data }) => {
   );
 };
 
-export default WikiTemplateDetails;
+export default ZettTemplateDetails;

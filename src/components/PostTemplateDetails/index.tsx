@@ -5,7 +5,7 @@ import Disqus from '../Disqus/Disqus';
 import './style.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
-import WikiLink from '../WikiLink';
+import ZettLink from '../ZettLink';
 
 const PostTemplateDetails = ({ data }) => {
   const { subtitle, author } = data.site.siteMetadata;
@@ -35,11 +35,11 @@ const PostTemplateDetails = ({ data }) => {
     </div>
   );
 
-  const commentsBlock = (
-    <div>
-      <Disqus postNode={post} siteMetadata={data.site.siteMetadata} />
-    </div>
-  );
+  // const commentsBlock = (
+  //   <div>
+  //     <Disqus postNode={post} siteMetadata={data.site.siteMetadata} />
+  //   </div>
+  // );
 
   return (
     <div>
@@ -54,7 +54,7 @@ const PostTemplateDetails = ({ data }) => {
 
           <MDXProvider
             components={{
-              a: (props) => <WikiLink {...props} />,
+              a: (props) => <ZettLink {...props} />,
             }}
           >
             <MDXRenderer className='post-single__body'>{post.body}</MDXRenderer>
@@ -77,7 +77,7 @@ const PostTemplateDetails = ({ data }) => {
               <strong>{author.name}</strong>
             )}
           </p>
-          {commentsBlock}
+          {/* {commentsBlock} */}
         </div>
       </div>
     </div>

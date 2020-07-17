@@ -9,11 +9,11 @@ const PageTemplateDetails = ({ data, location }) => {
   return (
     <div>
       <Sidebar location={location} />
-      <div className="content">
-        <div className="content__inner">
+      <div className='content'>
+        <div className='content__inner'>
           <div className={ptStyle.page}>
             <h1 className={ptStyle.pageTitle}>{page.frontmatter.title}</h1>
-            <MDXRenderer className="post-page__body">{page.body}</MDXRenderer>
+            <MDXRenderer className='post-page__body'>{page.body}</MDXRenderer>
           </div>
         </div>
       </div>

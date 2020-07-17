@@ -1,15 +1,13 @@
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import lodash from 'lodash';
 import React from 'react';
-import get from 'lodash/get';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import Menu from '../Menu';
-import Links from '../Links';
-import profilePic from './photo.jpg';
-import './style.scss';
-import { Location } from '@reach/router';
 import { SidebarInformationQuery } from '../../graphql';
+import Links from '../Links';
+import Menu from '../Menu';
+import './style.scss';
 
 const Sidebar = ({ location }) => {
-  let data: SidebarInformationQuery = useStaticQuery(graphql`
+  const data: SidebarInformationQuery = useStaticQuery(graphql`
     query sidebarInformation {
       site {
         siteMetadata {
@@ -35,7 +33,7 @@ const Sidebar = ({ location }) => {
   `);
 
   const { author, subtitle, copyright, menu } = data.site.siteMetadata;
-  const isHomePage = get(location, 'pathname', '/') === '/';
+  const isHomePage = lodash.get(location, 'pathname', '/') === '/';
 
   /* eslint-disable jsx-a11y/img-redundant-alt */
   const authorBlock = (
@@ -50,32 +48,32 @@ const Sidebar = ({ location }) => {
         />
       </Link> */}
       {isHomePage ? (
-        <h1 className="sidebar__author-title">
-          <Link className="sidebar__author-title-link" to="/">
+        <h1 className='sidebar__author-title'>
+          <Link className='sidebar__author-title-link' to='/'>
             {author.name}
           </Link>
         </h1>
       ) : (
-        <h2 className="sidebar__author-title">
-          <Link className="sidebar__author-title-link" to="/">
+        <h2 className='sidebar__author-title'>
+          <Link className='sidebar__author-title-link' to='/'>
             {author.name}
           </Link>
         </h2>
       )}
-      <p className="sidebar__author-subtitle">{subtitle}</p>
+      <p className='sidebar__author-subtitle'>{subtitle}</p>
     </div>
   );
   /* eslint-enable jsx-a11y/img-redundant-alt */
 
   return (
-    <div className="sidebar">
-      <div className="sidebar__inner">
-        <div className="sidebar__author">{authorBlock}</div>
+    <div className='sidebar'>
+      <div className='sidebar__inner'>
+        <div className='sidebar__author'>{authorBlock}</div>
         <div>
           <Menu data={menu} />
-          <br/>
+          <br />
           <Links data={author} />
-          <p className="sidebar__copyright">{copyright}</p>
+          <p className='sidebar__copyright'>{copyright}</p>
         </div>
       </div>
     </div>

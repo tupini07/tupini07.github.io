@@ -8,7 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const postTemplate = path.resolve('./src/templates/post-template.tsx')
-  const wikiPageTemplate = path.resolve('./src/templates/wiki-page-template.tsx')
+  const zettPageTemplate = path.resolve('./src/templates/zett-page-template.tsx')
   const pageTemplate = path.resolve('./src/templates/page-template.tsx')
   const tagTemplate = path.resolve('./src/templates/tag-template.tsx')
   const categoryTemplate = path.resolve(
@@ -46,10 +46,10 @@ exports.createPages = async ({ graphql, actions }) => {
         component: slash(pageTemplate),
         context: { slug: edge.node.fields.slug },
       })
-    } else if (_.get(edge, 'node.frontmatter.layout') === 'wiki') {
+    } else if (_.get(edge, 'node.frontmatter.layout') === 'zettelkasten') {
       createPage({
         path: edge.node.fields.slug,
-        component: slash(wikiPageTemplate),
+        component: slash(zettPageTemplate),
         context: { slug: edge.node.fields.slug },
       })
     } else if (_.get(edge, 'node.frontmatter.layout') === 'post') {
@@ -129,11 +129,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
   }
 
-  if (node.internal.type === 'Mdx' && node.frontmatter.layout === 'wiki') {
+  if (node.internal.type === 'Mdx' && node.frontmatter.layout === 'zettelkasten') {
     const parsedPath = path.parse(node.fileAbsolutePath);
     const { dir } = parsedPath;
 
-    let finalPath = dir.substring(dir.indexOf('/wiki/'));
+    let finalPath = dir.substring(dir.indexOf('/zettelkasten/'));
     if (parsedPath.base !== 'index.mdx') {
       finalPath += `/${parsedPath.name}`;
     }

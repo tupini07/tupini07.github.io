@@ -18,11 +18,11 @@ const IndexRoute = ({ data, location }) => {
       <div>
         <Helmet>
           <title>{title}</title>
-          <meta name="description" content={subtitle} />
+          <meta name='description' content={subtitle} />
         </Helmet>
         <Sidebar location={location} />
-        <div className="content">
-          <div className="content__inner">{items}</div>
+        <div className='content'>
+          <div className='content__inner'>{items}</div>
         </div>
       </div>
     </Layout>

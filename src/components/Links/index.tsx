@@ -9,17 +9,17 @@ const Links = ({ data: author }) => {
     github: [author.github],
     vk: [author.vk],
     rss: [author.rss],
-    email: [author.email],
+    email: [author.email]
   };
 
   const twitterElement = author.twitter ? (
     <li className={linkStyle.linksListItem}>
       <a
         href={`https://www.twitter.com/${links.twitter}`}
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener noreferrer'
       >
-        <i className="icon-twitter" />
+        <i className='icon-twitter' />
       </a>
     </li>
   ) : (
@@ -28,8 +28,8 @@ const Links = ({ data: author }) => {
 
   const githubElement = author.github ? (
     <li className={linkStyle.linksListItem}>
-      <a href={`https://www.github.com/${links.github}`} target="_blank" rel="noopener noreferrer">
-        <i className="icon-github" />
+      <a href={`https://www.github.com/${links.github}`} target='_blank' rel='noopener noreferrer'>
+        <i className='icon-github' />
       </a>
     </li>
   ) : (
@@ -38,8 +38,8 @@ const Links = ({ data: author }) => {
 
   const vkElement = author.vk ? (
     <li className={linkStyle.linksListItem}>
-      <a href={`https://www.vk.com/${links.vk}`} target="_blank" rel="noopener noreferrer">
-        <i className="icon-vkontakte" />
+      <a href={`https://www.vk.com/${links.vk}`} target='_blank' rel='noopener noreferrer'>
+        <i className='icon-vkontakte' />
       </a>
     </li>
   ) : (
@@ -49,7 +49,7 @@ const Links = ({ data: author }) => {
   const emailElement = author.email ? (
     <li className={linkStyle.linksListItem}>
       <a href={`mailto:${links.email}`}>
-        <i className="icon-mail" />
+        <i className='icon-mail' />
       </a>
     </li>
   ) : (
@@ -59,7 +59,7 @@ const Links = ({ data: author }) => {
   const telegramElement = author.telegram ? (
     <li className={linkStyle.linksListItem}>
       <a href={`telegram:${links.telegram}`}>
-        <i className="icon-paper-plane" />
+        <i className='icon-paper-plane' />
       </a>
     </li>
   ) : (
@@ -69,7 +69,7 @@ const Links = ({ data: author }) => {
   const rssElement = author.rss ? (
     <li className={linkStyle.linksListItem}>
       <a href={`${links.rss}`}>
-        <i className="icon-rss" />
+        <i className='icon-rss' />
       </a>
     </li>
   ) : (

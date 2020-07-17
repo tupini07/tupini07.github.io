@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-const WikiLastEdited = ({ wid }: { wid: string }) => {
+const ZettLastEdited = ({ wid }: { wid: string }) => {
   // TODO add files here
   const data = useStaticQuery(graphql`
     query GitFileEdits {
@@ -22,4 +22,4 @@ const WikiLastEdited = ({ wid }: { wid: string }) => {
   return <div>Not implemented! RAW data: {JSON.stringify(data)} </div>;
 };
 
-export default WikiLastEdited;
+export default ZettLastEdited;

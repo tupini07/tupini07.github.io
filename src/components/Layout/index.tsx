@@ -4,8 +4,8 @@ import '../../assets/scss/init.scss';
 
 const Layout = ({ children }) => {
   return (
-    <div className="layout">
-      <Helmet defaultTitle="Blog by John Doe" />
+    <div className='layout'>
+      <Helmet defaultTitle='Blog by John Doe' />
       {children}
     </div>
   );

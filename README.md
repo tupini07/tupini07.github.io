@@ -2,6 +2,7 @@
 
 - Expose an URL `/ext/wid/{wid}` that will redirect to the internal item identified by `wid` internally
   - this is for external integration
+  - add a _link to this page_ button in wiki page which copies the appropiate _external link_ for the page
 - Create page for wiki item
   - create backlinks section
 - clean up the "index wiki page"
@@ -12,10 +13,13 @@
     - for this, the wikiLink component should be updated to redirect to a _new_ page telling that the "item with ID" does not exist
 - Add a search page for wiki
 - would be nice to list the commits that changed a wiki page (maybe something like page history)
+  - If we do this then the "created at" file date is no longer necessary, since we can get the "last modified" from git
 - make headlines foldable
 - add creative commons disclaimer to wiki item (footer?)
 - Create a graph of depth N
   - Interesting for all the wiki articles starting (with depth = inf)
   - And also for a given article (with actual depth)
-- Consider changing name of `wiki` to something like `knowledge`
+- Consider changing name of `wiki` to something like `knowledge` or `zettelkasten`
   - since it is not really a wiki but an interconnected web of small concepts
+  - if `Zettelkasten` then explain somewhere what it is (possibly a reference to a wiki page)
+- Add a disclaimer somewhere that the wiki is not meant to be a reference

@@ -1,16 +1,15 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { WikiBrokenLinksQuery } from '../graphql';
+// import { ZettBrokenLinksQuery } from '../graphql';
 
-const WikiBrokenLinkRoute = ({
-  data,
-  location
-}: {
-  data: WikiBrokenLinksQuery;
+const ZettBrokenLinkRoute = (
+  { data, location } /*: {
+  data: ZettBrokenLinksQuery;
   location: string;
-}) => {
+}*/
+) => {
   const { title } = data.site.siteMetadata;
-  const wikiPages = data.allMdx.nodes;
+  const zettPages = data.allMdx.nodes;
 
   const findLinksInAST = (root): any => {
     if (root.type === 'link' && root.url.startsWith('WID:'))
@@ -19,7 +18,7 @@ const WikiBrokenLinkRoute = ({
         title: root.children.find(e => e.type === 'text')?.value || 'NO-TITLE'
       };
     else if (root.children) {
-      var links = [];
+      let links = [];
       for (const c of root.children) {
         links = links.concat(findLinksInAST(c));
       }
@@ -29,14 +28,14 @@ const WikiBrokenLinkRoute = ({
     }
   };
 
-  const pageBrokenLinks = wikiPages
+  const pageBrokenLinks = zettPages
     .map(e => {
       return {
         pageWID: e.frontmatter.wid,
         pageTitle: e.frontmatter.title,
         pageSlug: e.fields.slug,
-        brokenLinks: findLinksInAST(e.mdxAST).filter(e => {
-          return !wikiPages.find(p => p.frontmatter.wid === e.wid);
+        brokenLinks: findLinksInAST(e.mdxAST).filter(x => {
+          return !zettPages.find(p => p.frontmatter.wid === x.wid);
         })
       };
     })
@@ -48,15 +47,15 @@ const WikiBrokenLinkRoute = ({
         Broken Links (Total: {pageBrokenLinks.reduce((acc, e) => acc + e.brokenLinks.length, 0)})
       </div>
       {pageBrokenLinks.map(e => (
-        <div>
+        <div key={`item-${e}`}>
           <h4>
             Page: <a href={e.pageSlug}>{e.pageTitle}</a>{' '}
           </h4>
           <ul>
             {e.brokenLinks.map(l => (
-              <li>
-                Title: <code className="language-text">{l.title}</code> - WID:{' '}
-                <code className="language-text">{l.wid}</code>
+              <li key={`item-${l.wid}`}>
+                Title: <code className='language-text'>{l.title}</code> - WID:{' '}
+                <code className='language-text'>{l.wid}</code>
               </li>
             ))}
           </ul>
@@ -66,11 +65,11 @@ const WikiBrokenLinkRoute = ({
   );
 };
 
-export default WikiBrokenLinkRoute;
+export default ZettBrokenLinkRoute;
 
 export const pageQuery = graphql`
-  query WikiBrokenLinks {
-    allMdx(filter: { frontmatter: { layout: { eq: "wiki" }, draft: { ne: true } } }) {
+  query ZettBrokenLinks {
+    allMdx(filter: { frontmatter: { layout: { eq: "zettelkasten" }, draft: { ne: true } } }) {
       nodes {
         mdxAST
         frontmatter {

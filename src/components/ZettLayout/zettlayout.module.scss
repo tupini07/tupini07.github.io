@@ -13,21 +13,21 @@
   }
 }
 
-.wikiLeftSidebar {
+.zettLeftSidebar {
   max-width: 100%;
   @include breakpoint-md {
     min-width: 20%;
   }
 }
 
-.wikiMainContainer {
+.zettMainContainer {
   max-width: 100%;
   @include breakpoint-md {
     min-width: 60%;
   }
 }
 
-.wikiBacklinks {
+.zettBacklinks {
   max-width: 100%;
   @include breakpoint-md {
     min-width: 20%;

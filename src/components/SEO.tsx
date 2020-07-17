@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { Helmet } from 'react-helmet';
 import { SeoQuery } from '../graphql';
 const SEO = ({
   title,
   description,
   image,
-  article,
+  article
 }: {
   title?: string;
   description?: string;
@@ -24,7 +23,7 @@ const SEO = ({
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`,
+    url: `${siteUrl}${pathname}`
   };
 
   return (

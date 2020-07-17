@@ -3,7 +3,6 @@ import React from 'react';
 import menuStyle from './menu.module.scss';
 
 const Menu = ({ data: menu }) => {
-
   const menuBlock = (
     <ul className={menuStyle.menuList}>
       {menu.map(item => (
@@ -20,7 +19,7 @@ const Menu = ({ data: menu }) => {
     </ul>
   );
 
-  return <nav className="menu">{menuBlock}</nav>;
+  return <nav className='menu'>{menuBlock}</nav>;
 };
 
 export default Menu;
