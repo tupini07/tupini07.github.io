@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 import zettLinkStyle from './zettlink.module.scss';
 
@@ -47,9 +47,9 @@ const ZettLink = ({ href, children }: { href: string; children?: string }) => {
   else if (href.includes('.github.')) linkClassName = zettLinkStyle.external_github_link;
 
   return (
-    <a href={href} className={linkClassName}>
+    <Link to={href} className={linkClassName}>
       {children}
-    </a>
+    </Link>
   );
 };
 

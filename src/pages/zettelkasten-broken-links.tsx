@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 // import { ZettBrokenLinksQuery } from '../graphql';
 
@@ -49,7 +49,7 @@ const ZettBrokenLinkRoute = (
       {pageBrokenLinks.map(e => (
         <div key={`item-${e}`}>
           <h4>
-            Page: <a href={e.pageSlug}>{e.pageTitle}</a>{' '}
+            Page: <Link to={e.pageSlug}>{e.pageTitle}</Link>{' '}
           </h4>
           <ul>
             {e.brokenLinks.map(l => (

@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 import zettLinkStyle from '../ZettLink/zettlink.module.scss';
 import zettBacklinksStyle from './zettbacklink.module.scss';
@@ -29,9 +29,9 @@ const ZettBacklinks = ({ wid }: { wid: string }) => {
       <ul>
         {relevantNodes.map(e => (
           <li key={`item-${e.wid}`}>
-            <a href={e.fields.slug} className={zettLinkStyle.internal_link}>
+            <Link to={e.fields.slug} className={zettLinkStyle.internal_link}>
               {e.frontmatter.title} (Occurrences: {e.rawBody.split(wid).length - 1})
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
