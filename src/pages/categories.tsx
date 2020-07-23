@@ -6,7 +6,7 @@ import Layout from '../components/layout_components/Layout';
 import Sidebar from '../components/shared_components/Sidebar';
 import { Helmet } from 'react-helmet';
 
-const CategoriesRoute = ({ data, location }: { data: CategoriesQuery }) => {
+const CategoriesRoute = ({ data, location }: { data: CategoriesQuery, location: string }) => {
   const { title } = data.site.siteMetadata;
   const categories: Array<any> = data.allMdx.group;
 

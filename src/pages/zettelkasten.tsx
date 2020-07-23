@@ -1,9 +1,9 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
 import Layout from '../components/layout_components/Layout';
 import Sidebar from '../components/shared_components/Sidebar';
 import ZettLink from '../components/shared_components/ZettLink';
+import { Helmet } from 'react-helmet';
 
 const zettelkastenRoute = ({ data, location }) => {
   const { title } = data.site.siteMetadata;

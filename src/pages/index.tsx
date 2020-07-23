@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout_components/Layout';
 import { Helmet } from 'react-helmet';
 import Sidebar from '../components/shared_components/Sidebar';
+import Post from '../components/layout_components/Post';
 
 const IndexRoute = ({ data, location }) => {
   const items = [];
