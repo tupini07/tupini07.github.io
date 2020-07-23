@@ -1,10 +1,10 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
-import Layout from '../components/Layout';
-import PageTemplateDetails from '../components/PageTemplateDetails';
-import SEO from '../components/SEO';
+import Layout from '../components/layout_components/Layout';
+import PageTemplateDetails from '../components/layout_components/PageTemplateDetails';
+import SEO from '../components/shared_components/SEO';
 import { PageBySlugQuery } from '../graphql';
+import { Helmet } from 'react-helmet';
 
 const PageTemplate = ({ data, location }: { data: PageBySlugQuery; location: string }) => {
   const { title, subtitle } = data.site.siteMetadata;

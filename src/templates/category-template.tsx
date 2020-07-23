@@ -1,8 +1,8 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
+import Layout from '../components/layout_components/Layout';
+import { Helmet } from 'react-helmet';
+import CategoryTemplateDetails from '../components/layout_components/CategoryTemplateDetails';
 
 const CategoryTemplate = ({ data, pageContext }) => {
   const { title } = data.site.siteMetadata;

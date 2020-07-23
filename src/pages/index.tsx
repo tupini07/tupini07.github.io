@@ -1,9 +1,8 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Post from '../components/Post';
-import Sidebar from '../components/Sidebar';
+import Layout from '../components/layout_components/Layout';
+import { Helmet } from 'react-helmet';
+import Sidebar from '../components/shared_components/Sidebar';
 
 const IndexRoute = ({ data, location }) => {
   const items = [];

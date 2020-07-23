@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Helmet from 'react-helmet';
 import lodash from 'lodash';
-import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
+import Layout from '../components/layout_components/Layout';
+import { Helmet } from 'react-helmet';
+import Sidebar from '../components/shared_components/Sidebar';
 
 const TagsRoute = ({ data, location }) => {
   const { title } = data.site.siteMetadata;

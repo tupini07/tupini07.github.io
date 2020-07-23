@@ -1,10 +1,10 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import PostTemplateDetails from '../components/PostTemplateDetails';
-import SEO from '../components/SEO';
+import Layout from '../components/layout_components/Layout';
+import PostTemplateDetails from '../components/layout_components/PostTemplateDetails';
+import SEO from '../components/shared_components/SEO';
 import { PostBySlugQuery } from '../graphql';
+import { Helmet } from 'react-helmet';
 
 const PostTemplate = ({ data }: { data: PostBySlugQuery }) => {
   const { title, subtitle } = data.site.siteMetadata;

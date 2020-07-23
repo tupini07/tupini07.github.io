@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Sidebar from '../components/Sidebar';
-import Layout from '../components/Layout';
+import Layout from '../components/layout_components/Layout';
+import Sidebar from '../components/shared_components/Sidebar';
 
 const NotFoundRoute = ({ location }) => {
   return (

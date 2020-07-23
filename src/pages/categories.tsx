@@ -1,10 +1,10 @@
 import lodash from 'lodash';
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Helmet from 'react-helmet';
-import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
 import { CategoriesQuery } from '../graphql';
+import Layout from '../components/layout_components/Layout';
+import Sidebar from '../components/shared_components/Sidebar';
+import { Helmet } from 'react-helmet';
 
 const CategoriesRoute = ({ data, location }: { data: CategoriesQuery }) => {
   const { title } = data.site.siteMetadata;

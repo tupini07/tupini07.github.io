@@ -1,9 +1,9 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import TagTemplateDetails from '../components/TagTemplateDetails';
 import { TagPageQuery } from '../graphql';
+import Layout from '../components/layout_components/Layout';
+import { Helmet } from 'react-helmet';
+import TagTemplateDetails from '../components/layout_components/TagTemplateDetails';
 
 const TagTemplate = ({ data, pageContext }: { data: TagPageQuery; pageContext: any }) => {
   const { title } = data.site.siteMetadata;

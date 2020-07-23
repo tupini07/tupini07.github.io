@@ -1,10 +1,10 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
-import ZettLayout from '../components/ZettLayout';
-import SEO from '../components/SEO';
-import ZettTemplateDetails from '../components/ZettTemplateDetails';
+import SEO from '../components/shared_components/SEO';
 import { ZettPagesQuery } from '../graphql';
+import ZettLayout from '../components/layout_components/ZettLayout';
+import { Helmet } from 'react-helmet';
+import ZettTemplateDetails from '../components/layout_components/ZettTemplateDetails';
 
 const ZettPageTemplate = ({ data }: { data: ZettPagesQuery }) => {
   const { title, subtitle } = data.site.siteMetadata;
@@ -28,7 +28,7 @@ const ZettPageTemplate = ({ data }: { data: ZettPagesQuery }) => {
 export default ZettPageTemplate;
 
 export const pageQuery = graphql`
-  query ZettPagesQuery($slug: String!) {
+  query ZettPages($slug: String!) {
     site {
       siteMetadata {
         title
