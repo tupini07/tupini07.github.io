@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '../components/layout_components/Layout';
 import Sidebar from '../components/shared_components/Sidebar';
 import ZettLink from '../components/shared_components/ZettLink';
+import moment from 'moment';
 import { Helmet } from 'react-helmet';
 
 const zettelkastenRoute = ({ data, location }) => {
@@ -21,14 +22,14 @@ const zettelkastenRoute = ({ data, location }) => {
                 {/* Need to change this to be nicer */}
                 <Link to='/zettelkasten-broken-links'>Broken Links</Link>
               </div>
-              <ZettLink href='WID:20200716134828488' />
+              <ZettLink href='WID:index' />
               <div className='page__body'>
                 <h3>Recent pages</h3>
                 <div className='categories'>
                   <ul className='categories__list'>
                     {zettPages.map(zettP => (
                       <li key={zettP.frontmatter.wid} className='categories__list-item'>
-                        <ZettLink href={zettP.frontmatter.wid} /> ({zettP.frontmatter.date})
+                        <ZettLink href={zettP.frontmatter.wid} /> (Last modified: {moment(zettP.frontmatter.date).format('D MMM YYYY')})
                       </li>
                     ))}
                   </ul>

@@ -16,9 +16,10 @@ for full_path_file in (fd .org /home/andrea/Dropbox/org-roam/)
     --variable tags=tag1 \
     --variable tags=tag2 \
     --variable tags=tag3 \
-    --variable wid=$file_name \
+    --variable wid="WID:"$file_name \
     --variable last_modified_date=$mod_time \
     $full_path_file | \
-  sed -re 's/\]\(20/\]\(WID:20/' > $output_path
+  sed -re 's/\]\(20/\]\(WID:20/' | 
+  sed -re 's/\.org\)/\)/g' > $output_path
 
 end 

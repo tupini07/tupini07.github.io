@@ -1,6 +1,6 @@
 ---
 title: $title$
-last_modified: $last_modified_date$
+date: "$last_modified_date$"
 wid: $wid$
 layout: zettelkasten
 draft: false

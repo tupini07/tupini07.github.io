@@ -32,7 +32,7 @@ const ZettTemplateDetails = ({ data }) => {
         <em>{post.frontmatter.wid}</em>
       </div>
       <div className={zettTDStyle.subtitleItem}>
-        <em>Created on: {moment(post.frontmatter.date).format('D MMM YYYY')}</em>
+        <em>Last modified: {moment(post.frontmatter.date).format('D MMM YYYY')}</em>
       </div>
       <MDXProvider
         components={{

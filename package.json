@@ -23,7 +23,8 @@
     "deploy-ci": "gatsby build && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/tupini07/tupini07.github.io.git",
     "codegen": "graphql-codegen --config graphql-codegen.yml",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "import-org-roam": "cd ./scripts/import-org-roam/ && fish convert.fish"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.14",
