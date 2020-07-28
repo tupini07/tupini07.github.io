@@ -1,11 +1,17 @@
 ---
 title: $title$
+last_modified: $last_modified_date$
+wid: $wid$
+layout: zettelkasten
+draft: false
+$if(tags)$
+tags:
+$for(tags)$
+  - $tags$
+$endfor$
+$endif$
 ---
 
-$if(titleblock)$
-$titleblock$
-
-$endif$
 $for(header-includes)$
 $header-includes$
 

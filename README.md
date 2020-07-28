@@ -1,8 +1,6 @@
 # TODO
 
-1. Script that exports all `org-roam` file as Zettl notes
-   - Would be a good idea to include this script as part of this repo
-     - Input: org roam directory; Output: directory where to place Zettl notes
+1. Make script that exports `org-roam` able of handling "tags"
 2. `Zettelkasten` explain somewhere what it is (possibly a reference to a zettl page)
 3. Add a disclaimer somewhere that the wiki is not meant to be a reference
 4. Show orphaned pages somewhere (those zettl notes that have 0 backlinks [aren't linked to anywhere])

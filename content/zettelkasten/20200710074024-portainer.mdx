@@ -1,0 +1,52 @@
+---
+title: Portainer
+last_modified: 2020-07-10 08:25:53
+wid: 20200710074024-portainer
+layout: zettelkasten
+draft: false
+tags:
+  - tag1
+  - tag2
+  - tag3
+---
+
+<https://www.portainer.io/>
+
+*Portainer* can be used to manage docker containers in a host (either
+local or remote). Mainly used for monitoring and quick diagnostics.
+
+It can also be used to manage all other aspects of Dockers\'s
+infrastructure (images, stacks, networks, volumes, etc). It can also be
+used to set up *application templates*.
+
+It provides the following useful functionality:
+
+-   a web frontend
+-   Shell access to container
+-   container usage statistics
+-   application templates
+
+It also allows to manage *stacks* directly, which means that docker
+compose files can be managed and edited from the interface.
+
+Simple usage via *docker run*
+=============================
+
+``` {.bash}
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9000:9000
+  --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock
+  -v portainer_data:/data portainer/portainer
+```
+
+Running the edge agent on *edge* systems
+========================================
+
+This is for remote systems that we want to control.
+
+Just fill out the information in the FE and it will give the command to
+execute in the *edge* server to start the agent.
+
+Note however that the *portainer* server needs to be reachable by the
+edge instance since this edge instance will periodically poll the server
+for instructions.
