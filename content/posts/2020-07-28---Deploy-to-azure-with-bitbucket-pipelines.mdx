@@ -1,0 +1,37 @@
+---
+title: Deploying Azure webapp with Bitbucket pipelines
+date: '2020-07-14T18:21:30.000+00:00'
+layout: post
+draft: false
+path: "posts/deploying-an-azure-webapp-with-bitbucket-pipelines"
+category: "DevOps"
+description: "How to easily deploy an Azure WebApp from Bitbucket pipelines"
+---
+
+Need to create a _principal_ which has access to the webapp we want to deploy. To create a principal , first install the
+Azure CLI, and run the following:
+
+```bash
+az ad sp create-for-rbac --name MyServicePrincipal
+```
+
+The principal has a role of `Contributor` by default, so if you have access to the project then it is very likely that
+the principal will also have access. The roles of a principal can be easily changed via the cli. Note that this also
+means that a single principal can be used to deploy different apps.
+
+The deployment can be made with the
+[microsoft/azure-web-apps-deploy](https://bitbucket.org/microsoft/azure-web-apps-deploy/src/master/) pipeline. We just
+need to provide it with the create principal's credentials and the app information where we want to deploy. Refer to the
+pipeline's page for more documentation.
+
+Once you already have the credentials for the principal you can login with the following command:
+
+```bash
+az login --service-principal --username ${AZURE_APP_ID} --password ${AZURE_PASSWORD} --tenant ${AZURE_TENANT_ID}
+```
+
+At the time of this writing, the deployment can be tested locally with the following command.
+
+```bash
+az webapp deployment source config-zip --resource-group ${AZURE_RESOURCE_GROUP} --name ${AZURE_APP_NAME} --src ${ZIP_FILE}
+```

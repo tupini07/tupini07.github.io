@@ -1,0 +1,42 @@
+---
+title: "About this page"
+layout: page
+path: "/about"
+---
+
+This page is mainly for myself, so I apologize if you encounter any cryptic or incomprehensible thing (it was probably
+written with _me_ in mind). There may be some articles that are good enough for human consumption, but for the most part
+think of this as my notebook.
+
+The site is composed mainly of [Zettlekasten](/zettelkasten), which are my personal notes about _stuff_, as well as
+higher level [_articles_](/) (although they are more like longer notes than anything else), which use the _zettlekasten_
+to build up knowledge.
+
+If you want something like this platform for yourself then feel free to clone the [GitHub
+repository](https://github.com/tupini07/tupini07.github.io/tree/dev). If you want to make changes or fix a typo then PRs
+are more than welcome.
+
+## About the platform
+
+My idea for this site was to create a platform where I can write interconnected, and easily navigable notes, in an _easy
+to consume_ way. I've tried multiple applications that do this, but until now nothing has _scrached every itch_, so I
+decided to build my own platform.
+
+Luckily there's no need to build everything from scratch since there are lots of great open source elements that can be
+used. Most of the functionality for the site is built on [Gatsby](http://gatsbyjs.org/) which is in charge of building
+the site and a _graphql_ dataset which is used to create every page you see here.
+
+All the _zettlekasten_ are actually notes imported from my [org-roam](https://github.com/org-roam/org-roam) (which in
+turn is based on emacs' [org mode](https://orgmode.org/)) notes using [this custom
+script](https://github.com/tupini07/tupini07.github.io/blob/dev/scripts/import-org-roam/convert.fish). This ensures that
+I can easily work on my notes locally with `org-roam` and have a nice version of them published on the web.
+
+The inspiration for the _zettlekasten_ note linking system was taken from wiki systems, mainly
+[DokuWiki](https://www.dokuwiki.org/dokuwiki), where every entity is identified by a key. This allows me to reference
+items without needing to provide the path (or actually worrying about it at all), since Gatsby will end up finding the
+correct path during the build process, and replacing the references with it.
+
+I have many changes and extensions I want to make to the platform (as you can see in the
+[TODO](https://github.com/tupini07/tupini07.github.io/blob/dev/README.md#todo) section of the README). Most of this I do
+in my free time so it is quite possible that the number of items in the _wishlist_ will grow faster than I'm actually
+able to implement them.
