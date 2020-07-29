@@ -4,8 +4,8 @@
 <url> <loc>https://tupini07.github.io/contact</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tupini07.github.io/posts/deploying-an-azure-webapp-with-bitbucket-pipelines</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tupini07.github.io/categories/dev-ops/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://tupini07.github.io/home/travis/build/tupini07/tupini07.github.io/content/zettelkasten/20200710073759-docker</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tupini07.github.io/home/travis/build/tupini07/tupini07.github.io/content/zettelkasten/20200710074024-portainer</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://tupini07.github.io/home/travis/build/tupini07/tupini07.github.io/content/zettelkasten/20200710073759-docker</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tupini07.github.io/home/travis/build/tupini07/tupini07.github.io/content/zettelkasten/20200710080219-traefik</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tupini07.github.io/home/travis/build/tupini07/tupini07.github.io/content/zettelkasten/20200710114254-watchtower</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tupini07.github.io/home/travis/build/tupini07/tupini07.github.io/content/zettelkasten/20200710152803-ideas</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
