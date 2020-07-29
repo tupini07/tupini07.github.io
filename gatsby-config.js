@@ -7,38 +7,34 @@ module.exports = {
   siteMetadata: {
     url,
     siteUrl: url,
-    title: 'Blog',
+    title: 'Personal Notebook',
     description: 'Some description',
     image: '/static/fakeImage.png',
     subtitle:
-      'Just a random blog with hardly any original content.',
+      'Personal notebook',
     copyright: 'Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Un-ported License',
     disqusShortname: '',
     menu: [
-      {
-        label: 'Articles',
-        path: '/',
-      },
       {
         label: 'About this site',
         path: '/about/',
       },
       {
-        label: 'Contact me',
-        path: '/contact/',
+        label: 'Articles',
+        path: '/',
       },
       {
-        label: 'Tags',
-        path: '/tags/',
+        label: 'Zettelkasten',
+        path: '/zettelkasten/',
       },
       {
         label: 'Categories',
         path: '/categories/',
       },
       {
-        label: 'Zettelkasten',
-        path: '/zettelkasten/',
-      },
+        label: 'Tags',
+        path: '/tags/',
+      }
     ],
     author: {
       name: 'Andrea Tupini',
