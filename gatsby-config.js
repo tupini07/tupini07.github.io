@@ -20,7 +20,7 @@ module.exports = {
         path: '/',
       },
       {
-        label: 'About me',
+        label: 'About this site',
         path: '/about/',
       },
       {
