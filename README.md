@@ -29,7 +29,7 @@
 16. add creative commons disclaimer to wiki item (footer?)
 17. Investigate the concept of `namespaces` to separate Zettl notes
 18. Create a graph of depth N
-    - Interesting for all the wiki articles starting (with depth = inf)
+    - Interesting for all the wiki notes starting (with depth = inf)
     - And also for a given article (with actual depth)
     - Would also be interesting to have a graph for a post, which shows supporting zettl notes up to a depth `N`
 19. Add a Journal section

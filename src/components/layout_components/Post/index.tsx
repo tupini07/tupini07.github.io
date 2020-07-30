@@ -21,12 +21,12 @@ const Post = ({ data }) => {
         </span>
       </div>
       <h2 className='post__title'>
-        <Link className='post__title-link' to={slug}>
+        <Link className='post__title-link' to={"/" + slug}>
           {title}
         </Link>
       </h2>
       <p className='post__description'>{description}</p>
-      <Link className='post__readmore' to={slug}>
+      <Link className='post__readmore' to={"/" + slug}>
         Read
       </Link>
     </div>

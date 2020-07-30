@@ -9,7 +9,7 @@ const ZettLayout = ({ wid, children }) => {
     <div>
       <div className={zettLayoutStyle.backHomeLink}>
         <Link to='/zettelkasten'>
-          <i className='icon-arraow-left' /> Back to Zettelkasten Index
+          <i className='icon-arraow-left' /> Back to Zettelkasten Main Page
         </Link>
       </div>
       <div className={zettLayoutStyle.layoutContainer}>

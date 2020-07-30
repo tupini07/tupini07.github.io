@@ -14,7 +14,7 @@ const PostTemplateDetails = ({ data }) => {
   const homeBlock = (
     <div>
       <Link className='post-single__home-button' to='/'>
-        All Articles
+        All Notes
       </Link>
     </div>
   );

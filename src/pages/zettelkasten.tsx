@@ -17,19 +17,24 @@ const zettelkastenRoute = ({ data, location }) => {
         <div className='content'>
           <div className='content__inner'>
             <div className='page'>
-              <h1 className='page__title'>Zettelkasten</h1>
-              <div>
-                {/* Need to change this to be nicer */}
-                <Link to='/zettelkasten-broken-links'>Broken Links</Link>
-              </div>
-              <ZettLink href='WID:index' />
               <div className='page__body'>
+                <h1 className='page__title'>Zettelkasten</h1>
+                <h3>Special pages</h3>
+                <ul>
+                  <li>
+                    <ZettLink href='WID:index' />
+                  </li>
+                  <li>
+                    <Link to='/zettelkasten-broken-links'>Broken Links</Link>
+                  </li>
+                </ul>
                 <h3>Recent pages</h3>
                 <div className='categories'>
                   <ul className='categories__list'>
                     {zettPages.map(zettP => (
                       <li key={zettP.frontmatter.wid} className='categories__list-item'>
-                        <ZettLink href={zettP.frontmatter.wid} /> (Last modified: {moment(zettP.frontmatter.date).format('D MMM YYYY')})
+                        <ZettLink href={zettP.frontmatter.wid} /> (Last modified:{' '}
+                        {moment(zettP.frontmatter.date).format('D MMM YYYY')})
                       </li>
                     ))}
                   </ul>
