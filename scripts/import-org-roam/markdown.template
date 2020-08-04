@@ -14,7 +14,10 @@ $if(external_reference)$
 external_reference: $external_reference$
 $endif$
 $if(wikidata_entity)$
-external_reference: $wikidata_entity$
+wikidata_entity: $wikidata_entity$
+$endif$
+$if(wikipedia_link)$
+wikipedia_link: $wikipedia_link$
 $endif$
 ---
 
