@@ -1,0 +1,36 @@
+---
+title: Amazon Certificate Manager
+date: "2020-08-03 09:07:10"
+wid: WID:20200803145314-aws_acm
+layout: zettelkasten
+draft: false
+tags:
+  - tag1
+  - tag2
+---
+
+[!AWS](WID:20200803144816-aws) service that allows to manage
+certificates. It is both able to store external certificates (bought
+from an external certificate provider), as well as provide certificates
+directly.
+
+It works very well with [!CloudFront](WID:20200803144648-cloudfront),
+and it allows to provision free certificates.
+
+Getting free certificates with ACM
+==================================
+
+Note that the certificates will say that they\'re from ACM, but they at
+least allow *https* communication.
+
+To get a free certificate, go over to the [request
+certificate](https://console.aws.amazon.com/acm/home?region=us-east-1#/wizard/)
+page. After filling out some simple information in the wizard (domain,
+validation method), the selected domain for which the certificate is to
+be issued will be validated according to the selected validation method.
+
+If you have access to the registar email of the domain then that\'s the
+easiest option. Else, the DNS validation option is also quite simple,
+and basically consists of adding a CNAME entry to the DNS record so that
+ACM can confirm that we\'re actually the owners of the domain. Said
+CNAME entry is provided by ACM directly in the wizard.

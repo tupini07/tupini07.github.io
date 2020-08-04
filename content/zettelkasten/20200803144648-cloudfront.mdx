@@ -1,0 +1,31 @@
+---
+title: Amazon CloudFront
+date: "2020-08-03 09:06:47"
+wid: WID:20200803144648-cloudfront
+layout: zettelkasten
+draft: false
+tags:
+  - tag1
+  - tag2
+---
+
+Cloudfront is a [!AWS](WID:20200803144816-aws) service which provides a
+CDN functionality for data hosted on AWS.
+
+It is also commonly used as a *front* for web assets hosted on S3.
+
+Using a custom domain with CloudFront
+=====================================
+
+See
+[here](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html)
+for the complete documentation.
+
+Basically, we just need to add the name as an *Alternate Domain Name*
+for the distribution.
+
+However, it is very possible that we also want to use a free certificate
+given by [!AWS-ACM](WID:20200803145314-aws_acm) for this. If this is the
+case then we first need to request the certificate so that the domain
+can be used, before adding the domain can be added as a valid alternate
+domain.
