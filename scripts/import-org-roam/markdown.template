@@ -4,11 +4,17 @@ date: "$last_modified_date$"
 wid: $wid$
 layout: zettelkasten
 draft: false
-$if(tags)$
+$if(roam_tags)$
 tags:
-$for(tags)$
-  - $tags$
+$for(roam_tags)$
+  - $roam_tags$
 $endfor$
+$endif$
+$if(external_reference)$
+external_reference: $external_reference$
+$endif$
+$if(wikidata_entity)$
+external_reference: $wikidata_entity$
 $endif$
 ---
 
