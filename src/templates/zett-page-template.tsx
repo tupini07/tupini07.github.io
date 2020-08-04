@@ -54,6 +54,9 @@ export const pageQuery = graphql`
         tags
         date
         wid
+        wikidata_entity
+        wikipedia_link
+        external_reference
       }
     }
   }

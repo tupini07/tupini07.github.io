@@ -1,5 +1,5 @@
-@import "../../../assets/scss/variables";
-@import "../../../assets/scss/mixins";
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
 
 @mixin external-link($padl, $base64) {
   background: transparent url($base64) 0 0 no-repeat;
@@ -7,14 +7,14 @@
   padding: 0 0 0 $padl;
 }
 
-.external_wiki-link {
+.external_wiki_link {
   @include external-link(
     20px,
     'data:image/gif;base64,R0lGODlhEAAQAPMJADIxMlRUVG9vb4B/gJGRka6urtTV1N/g3/j5+P///wAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAkALAAAAAAQABAAAARYMMlJq70W6c017SBCGUKBEMRhpAVBHQGBFIDRzsVHAAcspLPDxwAw0Uw24URDCPQAsoLpgyAWDAEnkIoIlAoxk2jJhCIEPA8ZcSAYqjK1hHPY1OWYvJ4SAQA7'
   );
 }
 
-.external_github-link {
+.external_github_link {
   @include external-link(
     23px,
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABSlBMVEUAAAArKysZFhYYFhYYFRUYFRUXFhYgFRUYFhYXFRUkJCQYFhYYFhYYFhYcFhYYFRUYFRUYFRUYFhYXFRUYFRUYFRUZFxdAQEAXFxcXFhYXFhYYFRUYFRUXFhYXFRUYFhYYFRUZFhYYGBgrFRUYGBiAgID///8bGxseHh4XFxcZGRkaGhoZFhYYGBgZGRkbGxsYFhYYFhYYFRUcHBwgICAYFhYYFhYYFRUYFhYXFRUXFxcgICAYFhYYFhYYFhYZFhYZFRUYFhYYFhYYFRUnJycXFRUzMzMXFRUYFhYXFhYaFxcYFRUYFhYaFhYcHBwiIiIXFxcZFxcXFhYYFxccFRUYFhYYFRUXFhYXFhYdFhYYFhYbGxsaFxcYGBgYFRUYFhYXFRUaGhoXFRUXFRUbFhYYFhYZFhYYFhZVVVUXFhYXFRUYFxckJCQXFRVoNo0bAAAAbXRSTlMABkeVv9nzGJfxB4L0yC7j1qjs76rNZgRi59LBwNHw7WxSNQwqAgEmESEzHl1JHxPrdmElEOHeyvXyFgj44Mlckbd0YA3+BfyUjlrigEUSD0J725Mk+e7PxCOBHE5AnXOQHeb7L7hnfgPQ/ZIOisgawQAAAZ5JREFUOMttU2dDwkAMDRQKtOJWFEXUKuIeqIA4cSvg3hPEbf7/V5tcKaVtPjSX994ld8kVwDSPV/L5Zdnvk7wecFogGELTQsGAjVbUJmywJlVp2B5Gh4UtSZpb0MVams39rryuMHIolL+1rd3KdXR2URVxDpWQboj09KIc7euPDWB80ANDhKpcgM8/rK+0kVECEmNJ/TvOd6EiQc45Ye/LJMNBvX+iP1N2wbTomAe8oi8zdsHsHBNekNjPO3u/wIQEPvYpp2CRCR/4uULCZXxLxPhBJrfswkOaGBky5LJugmViMiIRrjj53CoRa7DOgg2nQNw/DJvs085TbjGxKYaCmLfz2wIfgp0sL3bVPSs9mt9nOKsBHCAeHsUQjwvFkmBPTs/OjXdxoYeXV3hd1G4ovOVxG80lW72j+F4f2kOKZvMoMjyZgoJ4cnr+Zwi8vHYbL71U42MGUK7g/rT1iG+Cr5RrQFVXvOc/Pr+MWNygUq1vefhmqPZL/lAQnbQmVQrU+ZwR7SJeqTlotLvfkBwx1nFZcnlBoCXNin919B9Zu61bBMwCcwAAAABJRU5ErkJggg=='

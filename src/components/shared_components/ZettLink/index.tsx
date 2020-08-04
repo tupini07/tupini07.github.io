@@ -2,7 +2,15 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 import zettLinkStyle from './zettlink.module.scss';
 
-const ZettLink = ({ href, children }: { href: string; children?: string }) => {
+const ZettLink = ({
+  href,
+  children,
+  target
+}: {
+  href: string;
+  children?: string;
+  target?: string;
+}) => {
   const data = useStaticQuery(graphql`
     query ZettLinkItems {
       allMdx(filter: { frontmatter: { layout: { eq: "zettelkasten" }, draft: { ne: true } } }) {
@@ -20,11 +28,12 @@ const ZettLink = ({ href, children }: { href: string; children?: string }) => {
   `);
 
   let linkClassName = zettLinkStyle.external_link;
-
+  let linkTarget = target || '_blank';
   if (href.startsWith('WID:')) {
-    const page = data.allMdx.nodes.find((e) => e.frontmatter.wid === href);
+    const page = data.allMdx.nodes.find(e => e.frontmatter.wid === href);
+    linkTarget = '_self';
 
-    // if the page doesn't exist
+    // if the page exists
     if (page) {
       // If link title starts with '!!' then ignore it and use the one from
       // the actual page
@@ -37,17 +46,19 @@ const ZettLink = ({ href, children }: { href: string; children?: string }) => {
       href = page.fields.slug;
       linkClassName = zettLinkStyle.internal_link;
     } else {
+      // else it is a broken link and should be marked as such
       children = `BROKEN-LINK (${href})`;
       href = '#';
       linkClassName = `${zettLinkStyle.internal_link} ${zettLinkStyle.broken_link}`;
     }
   }
 
-  if (href.includes('.wikipedia.')) linkClassName = zettLinkStyle.external_wiki_link;
+  if (href.includes('.wikipedia.') || href.includes('.wikidata.'))
+    linkClassName = zettLinkStyle.external_wiki_link;
   else if (href.includes('.github.')) linkClassName = zettLinkStyle.external_github_link;
 
   return (
-    <Link to={href} className={linkClassName}>
+    <Link to={href} className={linkClassName} target={linkTarget}>
       {children}
     </Link>
   );
