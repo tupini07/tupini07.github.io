@@ -19,6 +19,7 @@ $endif$
 $if(wikipedia_link)$
 wikipedia_link: $wikipedia_link$
 $endif$
+path: /zettelkasten/$wid$
 ---
 
 $for(header-includes)$
