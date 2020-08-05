@@ -53,6 +53,21 @@ const ZettTemplateDetails = ({ data }: { data: ZettPagesQuery }) => {
     </div>
   );
 
+  const externalLinkBlock = (
+    <div className={zettTDStyle.subtitleItem}>
+      {post.frontmatter.external_reference ? (
+        <span>
+          Home:{' '}
+          <ZettLink href={post.frontmatter.external_reference}>
+            {post.frontmatter.external_reference}
+          </ZettLink>
+        </span>
+      ) : (
+        ''
+      )}
+    </div>
+  );
+
   return (
     <div>
       <h1 className={zettTDStyle.title}>{post.frontmatter.title}</h1>
@@ -64,6 +79,7 @@ const ZettTemplateDetails = ({ data }: { data: ZettPagesQuery }) => {
       </div>
       {wikidataLinkBlock}
       {wikiLinkBlock}
+      {externalLinkBlock}
       <MDXProvider
         components={{
           a: props => <ZettLink {...props} />
