@@ -24,7 +24,7 @@
     "codegen": "graphql-codegen --config graphql-codegen.yml",
     "type-check": "tsc --noEmit",
     "lint": "tslint --project .",
-    "import-org-roam": "cd ./scripts/import-org-roam/ && pipenv run python convert.py"
+    "import-org-roam": "cd ./scripts/import-org-roam/ && pipenv install && pipenv run python convert.py"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.14",

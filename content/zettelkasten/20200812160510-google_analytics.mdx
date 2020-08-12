@@ -1,0 +1,52 @@
+---
+title: Google Analytics
+date: "2020-08-12T10:34:45.504238"
+wid: WID:20200812160510-google_analytics
+layout: zettelkasten
+draft: false
+external_reference: https://analytics.google.com/
+wikidata_entity: Q220577
+wikipedia_link: https://en.wikipedia.org/wiki/Google Analytics
+path: /zettelkasten/WID:20200812160510-google_analytics
+---
+
+Google Analytics if a very used system to track actions in a website. It
+is provided as a free service by Google, and at it\'s most simple it is
+very easy to integrate into an existing website.
+
+Basically, to make a `GA` work on a website, you only need to add the
+tracking code provided when you create a *property*.
+
+The `gtag` function
+===================
+
+The `gtag` function is the main way of interacting with GA. The basic
+shape is `gtag('<type>', '<key>', <parameters>*)`.
+
+The most basic functionality is just to specify the *config* (which is
+like registering a property with the library):
+
+``` {.javascript}
+gtag('config', 'UA-XXXXXXX-X');
+```
+
+More information about this can be found [in the
+documentation](https://developers.google.com/analytics/devguides/collection/gtagjs/pages).
+
+Triggering events
+=================
+
+We can *register* arbitrary events with GA also through the `gtag`
+function, in the following way:
+
+``` {.javascript}
+gtag('event', eventName, {
+    eventCategory: eventCategory,
+    eventLabel: eventLabel,
+    eventAction: eventAction,
+    eventValue: eventValue
+});
+```
+
+These events will then appear in the GA dashboard and be there for us if
+we want to analyze them.

@@ -7,7 +7,7 @@ import requests
 import tqdm
 
 ZETTLDIR = "../../content/zettelkasten/"
-ORG_ROAM_DIR = "/home/andrea/Dropbox/org-roam/"
+ORG_ROAM_DIR = "/home/andrea/Dropbox/org-files/org-roam/"
 
 
 def get_file_metadata(file_path: str, meta_name: str, raw=False) -> str:
