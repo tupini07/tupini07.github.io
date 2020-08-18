@@ -26,26 +26,27 @@ const ZettTemplateDetails = ({ data }: { data: ZettPagesQuery }) => {
     </div>
   );
 
-  const wikiLinkBlock = (
-    <div className={zettTDStyle.subtitleItem}>
-      {post.frontmatter.wikipedia_link ? (
-        <span>
-          <ZettLink href={post.frontmatter.wikipedia_link}>Wikipedia Link</ZettLink>
+  const wikidataLinkBlock = (
+    <span>
+      {post.frontmatter.wikidata_entity ? (
+      <span className={zettTDStyle.subtitleItem}>(
+          QID:{' '}
+          <ZettLink href={'https://www.wikidata.org/wiki/' + post.frontmatter.wikidata_entity}>
+            {post.frontmatter.wikidata_entity}
+          </ZettLink>
+        )
         </span>
       ) : (
         ''
       )}
-    </div>
+    </span>
   );
 
-  const wikidataLinkBlock = (
+  const wikiLinkBlock = (
     <div className={zettTDStyle.subtitleItem}>
-      {post.frontmatter.wikidata_entity ? (
+      {post.frontmatter.wikipedia_link ? (
         <span>
-          Wikidata:{' '}
-          <ZettLink href={'https://www.wikidata.org/wiki/' + post.frontmatter.wikidata_entity}>
-            {post.frontmatter.wikidata_entity}
-          </ZettLink>
+          <ZettLink href={post.frontmatter.wikipedia_link}>Wikipedia Link</ZettLink> {wikidataLinkBlock}
         </span>
       ) : (
         ''
@@ -70,14 +71,13 @@ const ZettTemplateDetails = ({ data }: { data: ZettPagesQuery }) => {
 
   return (
     <div>
-      <h1 className={zettTDStyle.title}>{post.frontmatter.title}</h1>
-      <div className={zettTDStyle.subtitleItem}>
-        <em>{post.frontmatter.wid}</em>
-      </div>
-      <div className={zettTDStyle.subtitleItem}>
+      <h1 className={zettTDStyle.title}>
+        {post.frontmatter.title}
+        <em className={zettTDStyle.subtitleItem}> ({post.frontmatter.wid})</em>
+      </h1>
+      <div className={`${zettTDStyle.subtitleItem} ${zettTDStyle.modifiedDate}`}>
         <em>Last modified: {moment(post.frontmatter.date).format('D MMM YYYY')}</em>
       </div>
-      {wikidataLinkBlock}
       {wikiLinkBlock}
       {externalLinkBlock}
       <MDXProvider

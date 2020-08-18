@@ -13,7 +13,7 @@
     "react"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "npm run import-org-roam && gatsby develop",
     "build": "gatsby build",
     "clean:public": "rm -rf public",
     "clean": "npm run clean:public",

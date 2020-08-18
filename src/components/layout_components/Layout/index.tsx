@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 const Layout = ({ children }) => {
   return (
     <div className='layout'>
-      <Helmet defaultTitle='Blog by John Doe' />
+      <Helmet defaultTitle='Personal Notebook' />
       {children}
     </div>
   );
