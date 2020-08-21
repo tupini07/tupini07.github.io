@@ -76,11 +76,25 @@ if __name__ == "__main__":
             except KeyError:
                 print(f"Didn't find a corresponding wikipedia entry for entity '{wikidata_entity}'. File: {f_name}")
 
+        # Briefly preprocess origin file and save it to a temporary temp file
+        original_contents = open(f_path.absolute(), "r").read().split("\n")
+        processed_contents = [x for x in original_contents 
+                if not x.startswith("#+") # remove comment lines
+                or x.lower().startswith("#+title") # but do allow the "title" comment
+                or x.lower().startswith("#+begin_") # also allow special begin comments
+                or x.lower().startswith("#+end_") # and end comments
+                ]
+
+        tmp = open("/tmp/import-org-roam-temp-file.org", "w+")
+        tmp.write('\n'.join(processed_contents))
+        tmp.close()
+
         os.system('pandoc --from org --to markdown '
+                  '--strip-comments '
                   '--template markdown.template '
                   f'--variable wid="WID:{f_name}" '
                   f'--variable last_modified_date="{mod_time.isoformat()}" '
                   f'{variables} '
-                  f'{f_path.absolute()} | '
+                  f'{tmp.name} | '
                   f'sed -re "s/\]\(20/\]\(WID:20/" | sed -re "s/\.org\)/\)/g" '
                   f'> {output_path}')
