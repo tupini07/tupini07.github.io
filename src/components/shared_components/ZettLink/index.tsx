@@ -53,8 +53,8 @@ const ZettLink = ({
     }
   }
 
-  if (href.includes('.wikipedia.') || href.includes('.wikidata.'))
-    linkClassName = zettLinkStyle.external_wiki_link;
+  if (href.includes('.wikipedia.')) linkClassName = zettLinkStyle.external_wikipedia_link;
+  else if (href.includes('.wikidata.')) linkClassName = zettLinkStyle.external_wikidata_link;
   else if (href.includes('.github.')) linkClassName = zettLinkStyle.external_github_link;
 
   return (
