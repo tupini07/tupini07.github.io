@@ -1,6 +1,6 @@
 ---
 title: Amazon CloudFront
-date: "2020-08-04T12:32:10.285568"
+date: "2020-09-01T08:24:46.989989"
 wid: WID:20200803144648-cloudfront
 layout: zettelkasten
 draft: false
@@ -26,7 +26,17 @@ See
 for the complete documentation.
 
 Basically, we just need to add the name as an *Alternate Domain Name*
-for the distribution.
+for the distribution, and create a rule in the domain\'s DNS so that
+requests are *routed* to the CloudFront domain provided by AWS.
+
+From CloudFront\'s documentation:
+
+> Use the method provided by your DNS service provider to add a CNAME
+> record for your domain. This new CNAME record will redirect DNS
+> queries from your domain (for example, www.example.com) to the
+> CloudFront domain name for your distribution (for example,
+> d111111abcdef8.cloudfront.net). For more information, see the
+> documentation provided by your DNS service provider.
 
 However, it is very possible that we also want to use a free certificate
 given by [!!AWS-ACM](WID:20200803145314-aws_acm) for this. If this is

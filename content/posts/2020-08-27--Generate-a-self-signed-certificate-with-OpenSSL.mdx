@@ -1,0 +1,27 @@
+---
+title: Generate a self-signed certificate with OpenSSL
+date: '2020-08-27T14:59:30.000+00:00'
+layout: post
+draft: false
+path: "posts/generate-a-self-signed-certificate-with-openssl"
+category: "DevOps"
+description: "Quickly generate a self-signed certificate for fun and profit"
+---
+
+Although not really useful in production, generating a self-signed certificate can be a great way to test the HTTPs
+functionality of on application locally.
+
+To generate a self signed certificate you'll need to have [OpenSSL](https://www.openssl.org/) installed. Once that's
+done, creating the certificate is as easy as running the following in your terminal:
+
+```bash
+openssl req -newkey rsa:2048 \
+            -nodes \
+            -keyout private_key.pem \
+            -x509 \
+            -days 365 \
+            -out certificate.pem
+```
+
+It will create two files. A private key file `private_key.pem` (used by your server/application to sign responses), and
+a _certificate_ `certificate.pem`, which is used by clients to encrypt requests and verify the origin of the data.

@@ -1,0 +1,74 @@
+---
+title: Nexus 10 (manta)
+date: "2020-10-14T14:39:46.444690"
+wid: WID:20201014135215-nexus_10_manta
+layout: zettelkasten
+draft: false
+tags:
+  - devices
+wikidata_entity: Q3875739
+wikipedia_link: https://en.wikipedia.org/wiki/Nexus 10
+path: /zettelkasten/WID:20201014135215-nexus_10_manta
+---
+
+The nexus 10 was pretty much my first tablet and it still works pretty
+well given that I manually update the ROM every couple of months.
+
+Installing a custom ROM
+=======================
+
+Getting the ROM
+---------------
+
+Head over to the [XDA Nexus
+10](https://forum.xda-developers.com/nexus-10) page and search for a
+ROM. A good thread is [this
+one](https://forum.xda-developers.com/nexus-10/development/rom-lineage-14-1-20170216-unofficial-t3557735),
+which is a port of lineage for the manta. Download the *.zip* file for
+the rom and place it in the root of the system storage for the device.
+
+Preparing recovery
+------------------
+
+In my experience, the best recovery image is TWRP. Head over to the
+[official TWRP page](https://twrp.me/samsung/samsungnexus10.html) for
+manta, download the latest image and flash it to the recovery partition.
+
+To enter bootloader mode: press power + vol-up + vol-down
+
+### Flashing TWRP
+
+If it is necessary to flash TWRP then it is possible to do so with
+`fastboot` by first entering into bootloader. Follow the instructions of
+the TWRP site.
+
+Getting GAPS
+------------
+
+Go to the [OpenGapps](https://opengapps.org/) page and download whatever
+flavor is necessary. **Note** that manta has an **ARM** processor, so be
+sure to select this one, and also select the appropriate android version
+for the selected rom (if the android version is not correct they you
+won\'t be able to install gapps).
+
+Note that the *pico* option is quite good, sometimes if a big option is
+chosen then an error while flashing may arise informing that there is
+not enough space in the system partition (this space can be increased).
+
+[TODO]{.todo .TODO} Magisk {#magisk}
+--------------------------
+
+Magisk provides an interface to run android as root.
+<https://topjohnwu.github.io/Magisk/install.html>
+
+TODO: do and define
+
+Installing stuff
+----------------
+
+Boot into recovery, wipe *system, dalvik, and cache*, then head over to
+*install* and first install the ROM, followed by the *opengapps*, and
+then *magisk*. Reboot and everything should work.
+
+Remember to check the install instructions of the rom provider, since
+they may vary from case to case.
