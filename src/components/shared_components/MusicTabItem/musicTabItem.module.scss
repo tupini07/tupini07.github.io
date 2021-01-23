@@ -1,0 +1,8 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.tab_content,
+.tab_content * {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}

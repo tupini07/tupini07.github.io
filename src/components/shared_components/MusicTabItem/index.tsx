@@ -1,17 +1,28 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import musicTabItemStyle from './musicTabItem.module.scss';
+
 const MusicTabItem = ({
   originaUrl,
   originalAuthor,
+  originalAuthorLink,
   children
 }: {
   originaUrl: string;
   originalAuthor?: string;
+  originalAuthorLink?: string;
   children?: string;
 }) => {
   const originalAuthorPart = originalAuthor ? (
     <p>
-      The original author of this tab is <i>{originalAuthor}</i>
+      The original author of this tab is{' '}
+      {originalAuthorLink ? (
+        <Link to={originalAuthorLink} target='_blank'>
+          {originalAuthor}
+        </Link>
+      ) : (
+        <i>{originalAuthor}</i>
+      )}
     </p>
   ) : (
     ''
@@ -30,7 +41,9 @@ const MusicTabItem = ({
       {originalAuthorPart}
 
       <hr></hr>
-      <code style={{whiteSpace: 'pre-wrap'}}>{children}</code>
+      <code style={{ whiteSpace: 'pre-wrap' }} className={musicTabItemStyle.tab_content}>
+        {children}
+      </code>
       <hr></hr>
     </div>
   );
