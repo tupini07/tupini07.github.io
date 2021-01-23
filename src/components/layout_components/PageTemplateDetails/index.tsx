@@ -4,12 +4,14 @@ import React from 'react';
 import Sidebar from '../../shared_components/Sidebar';
 import ptStyle from './pageTemplate.module.scss';
 import MusicTabItem from '../../shared_components/MusicTabItem';
+import ListOfTabs from '../../page_specific/ListOfTabs';
 
 const PageTemplateDetails = ({ data, location }) => {
   const page = data.mdx;
 
   const shortcodes = {
-    MusicTabItem
+    MusicTabItem,
+    ListOfTabs
   };
 
   return (
