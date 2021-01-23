@@ -1,6 +1,6 @@
 ---
 title: Docker
-date: "2020-08-04T12:31:35.118647"
+date: "2020-10-15T11:09:55.561716"
 wid: WID:20200710073759-docker
 layout: zettelkasten
 draft: false
@@ -12,8 +12,7 @@ path: /zettelkasten/WID:20200710073759-docker
 
 Docker is the main containerization technology
 
-Tools
-=====
+# Tools
 
 -   [!!Portainer](WID:20200710074024-portainer) - a tool to manage
     docker installations via web interface. Supports both local and
@@ -23,3 +22,25 @@ Tools
     or not).
 -   [!!Watchtower](WID:20200710114254-watchtower) - A process for
     automating Docker container base image updates
+
+# Doing stuff
+
+## Connecting to a host port from inside a Docker container
+
+Suppose the case in which we have a DB server running on the host and
+want to connect to it from inside a docker container. An easy solution
+for this would be to use `--network=host` when launching the container,
+but this is not always possible (or if you\'re using Docker on Windows,
+at least not today: \[2020-10-15 Thu\]).
+
+**Note:** In the future (pending the resolution of [this
+issue](https://github.com/docker/for-linux/issues/264)) we can use
+`host.docker.internal` to access the *bridge* between container and
+host. Although this functionality seems to be working fine in MacOS and
+Windows.
+
+In linux we can use the command `ip a` to find the IP address of the
+`docker0` interface. We can then use this IP from within the container
+to reference the *bridge*. See
+[this](https://stackoverflow.com/a/31328031/2234619) stackoverflow
+answer for more details.

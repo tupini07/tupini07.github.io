@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
         # Briefly preprocess origin file and save it to a temporary temp file
         original_contents = open(f_path.absolute(), "r").read().split("\n")
-        processed_contents = [x for x in original_contents 
+        processed_contents = [x for x in original_contents
                 if not x.startswith("#+") # remove comment lines
                 or x.lower().startswith("#+title") # but do allow the "title" comment
                 or x.lower().startswith("#+begin_") # also allow special begin comments
