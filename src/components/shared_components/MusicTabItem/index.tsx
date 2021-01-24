@@ -41,9 +41,12 @@ const MusicTabItem = ({
       {originalAuthorPart}
 
       <hr></hr>
-      <code style={{ whiteSpace: 'pre-wrap' }} className={musicTabItemStyle.tab_content}>
-        {children}
-      </code>
+      <div className='gatsby-highlight' data-language='text'>
+        <pre className='language-text'>
+          <code className='language-text'>{children}</code>
+        </pre>
+      </div>
+
       <hr></hr>
     </div>
   );
