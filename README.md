@@ -22,7 +22,7 @@
 13. Component to query from wikidata (to display "real information)
     - Either query as part of the page hydration (during gatsby build) or the component dynamically queries from the
       client on page render
-14. `edit in github` for wiki pages
+14. `edit in github` for article pages and zetl pages
     - edit for existing pages
     - offer to create it if the wiki page does not exist
       - for this, the wikiLink component should be updated to redirect to a _new_ page telling that the "item with ID"
@@ -49,6 +49,7 @@
 23. Add some way to make final page(s) private (maybe basic user:pass)
 24. magician
 25. clean up the "index wiki page"
+26. Style in mobile landscape doesn't look very good
 
 
 ## Posts

@@ -1,0 +1,33 @@
+---
+title: VIM Cheatsheet
+date: '2021-02-10T08:21:30.000+00:00'
+layout: post
+draft: false
+path: "posts/vim-cheat-sheet"
+category: "Editors"
+description: "My person cheat sheet of VIM bindings"
+---
+
+This is my personal cheat sheet of VIM keybings. Many refer to the _vanilla_ bindings for vim, but other are my own
+custom bindings.
+
+## Navigation
+
+### Movement
+
+| **Binding** | **Effect**                                 |
+| `w`         | Move to the beginning of the next word     |
+| `b`         | Move to the beginning of the previous word |
+| `e`         | Move to the end of the next word           |
+
+### Actions
+
+| **Binding** | **Effect**                                   |
+| `t` / `T`   | Till. Moves the cursor **until** a character |
+| `f` / `F`   | Find. Moves the cursor **to** a character    |
+| `{num}G`    | Go to line `{num}`                           |
+
+## Special commands
+
+| **Binding** | **Effect**                                                                                               |
+| `;` / `,`   | When searching with `t/T/f/F` it moves the cursor to the next match (`;`) or to the previous match (`,`) |
