@@ -4,6 +4,7 @@
 2. Create a showcase of github and gitlab projects
     - Ideally, we specify the name and we then pull the readme, url, and description directly from github or gitlab's
       API
+    - See https://swr.vercel.app/getting-started or https://www.gatsbyjs.com/docs/data-fetching/ for fetching data at runtime
 3. Add a disclaimer somewhere that the wiki is not meant to be a reference
 4. Exclude `Index` from backlinks of a page
 5. Show orphaned pages somewhere (those zettl notes that have 0 backlinks [aren't linked to anywhere])
