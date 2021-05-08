@@ -31,7 +31,7 @@ const MusicTabItem = ({
   return (
     <div>
       <p>
-        This tab is not my work. I've included ir as part of this site for ease of reference
+        This tab is not my work. I've included it as part of this site for <i>ease of reference</i>
         purposes. The original can be found{' '}
         <Link to={originaUrl} target='_blank'>
           here
