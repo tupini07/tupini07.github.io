@@ -28,6 +28,10 @@ module.exports = {
         path: '/resources',
       },
       {
+        label: 'Projects',
+        path: '/projects',
+      },
+      {
         label: 'Zettelkasten',
         path: '/zettelkasten/',
       },
